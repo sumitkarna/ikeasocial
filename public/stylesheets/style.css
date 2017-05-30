@@ -1,0 +1,113 @@
+body {
+  padding-top: 50px;
+}
+
+<<<<<<< Upstream, based on f5cb283e0b207ada6b29e9fe0f59760973117597
+.hidden {
+	display:none;
+}
+
+a, span.linklike {
+	text-decoration: none;
+	color: #00aed1;
+=======
+.tab-content .lead {
+	margin-top: 20px;
+>>>>>>> dc43de3 updated code
+}
+
+<<<<<<< Upstream, based on f5cb283e0b207ada6b29e9fe0f59760973117597
+a:hover, span.linklike:hover {
+	text-decoration: underline;
+	cursor:pointer;
+=======
+.result-table {
+	margin: 20px 0;
+	width: 100%;
+	border-collapse: collapse;
+>>>>>>> dc43de3 updated code
+}
+
+<<<<<<< Upstream, based on f5cb283e0b207ada6b29e9fe0f59760973117597
+.newappIcon {
+	display: block;
+	margin: 0 auto;
+	max-width:200px;
+=======
+.result-table td {
+	padding: 8px;
+>>>>>>> dc43de3 updated code
+}
+
+<<<<<<< Upstream, based on f5cb283e0b207ada6b29e9fe0f59760973117597
+h1 {
+	font-weight: bold;
+	font-size: 2em;
+}
+
+h2 {
+	font-weight: bold;
+	font-size: 1.5em;
+}
+
+.leftHalf {
+	float: left;
+	background-color: #26343f;
+	width: 45%;
+	height: 100%;
+}
+
+.rightHalf {
+	float: right;
+	width: 55%;
+	background-color: #313f4a;
+	height: 100%;
+	overflow:auto;
+}
+
+.blue {
+	color: #00aed1;
+}
+
+
+table {
+	table-layout: fixed;
+	width: 800px;
+	margin: 0 auto;
+	word-wrap: break-word;
+	padding-top:10%;
+}
+
+th {
+	border-bottom: 1px solid #000;
+}
+
+th, td {
+	text-align: left;
+	padding: 2px 20px;
+}
+
+.env-var {
+=======
+.result-table > tbody > tr > td:first-child {
+	width: 25%;
+	max-width: 300px;
+>>>>>>> dc43de3 updated code
+	text-align: right;
+<<<<<<< Upstream, based on f5cb283e0b207ada6b29e9fe0f59760973117597
+	border-right: 1px solid #000;
+	width: 30%;
+}
+
+pre {
+	padding: 0;
+	margin: 0;
+}
+
+ul {
+	list-style-type: none;
+	padding:0
+}
+=======
+}
+>>>>>>> dc43de3 updated code
