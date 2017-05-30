@@ -11,7 +11,6 @@ if (process.env.VCAP_SERVICES) {
 // Get Employee schema and model
 var EmployeeSchema = require('../models/IkeasocialSchema.js').EmployeeSchema;
 var Employee = db.model('Employee', EmployeeSchema);
-//subhadeep
 
 // Main application view
 exports.index = function(req, res) {
@@ -28,9 +27,28 @@ exports.list = function(req, res) {
 
 // JSON API for creating a new employee
 exports.create = function(req, res) {
+
 	var reqBody = req.body,
 			// Build up employee object to save
-			employeeeObj = {firstname: reqBody.firstname, lastname:reqBody.lastname};
+			employeeeObj = {
+				firstname: reqBody.firstname, 
+				lastname:reqBody.lastname,
+				emailaddr:reqBody.emailaddr,
+				team:reqBody.team,
+				nickname:reqBody.nickname,
+				officephone:reqBody.officephone,
+				homephone:reqBody.homephone,
+				photos:reqBody.photos,
+				hobbies:reqBody.hobbies,
+				aboutme: reqBody.aboutme,
+				maritialstatus:reqBody.maritialstatus,
+				anniversay:reqBody.anniversay,
+				birthday:reqBody.birthday,
+				facebook: reqBody.facebook,
+				linkedin: reqBody.linkedin,
+				twitter:  reqBody.twitter
+
+		};
 				
 	// Create employee model from built up poll object
 	var employeee = new Employee(employeeeObj);

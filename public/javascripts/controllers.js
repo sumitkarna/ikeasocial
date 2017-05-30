@@ -30,7 +30,7 @@ function EmployeeNewCtrl($scope, $location, Employee) {
 					if(!p.error) {
 						// If there is no error, redirect to the main view
 						//need change 
-						$location.path('polls');
+						$location.path('employee');
 					} else {
 						alert('Could not create employee');
 					}
