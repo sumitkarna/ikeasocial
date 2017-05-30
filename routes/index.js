@@ -11,6 +11,7 @@ if (process.env.VCAP_SERVICES) {
 // Get Employee schema and model
 var EmployeeSchema = require('../models/IkeasocialSchema.js').EmployeeSchema;
 var Employee = db.model('Employee', EmployeeSchema);
+//subhadeep
 
 // Main application view
 exports.index = function(req, res) {
