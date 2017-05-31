@@ -8,8 +8,9 @@ exports.EmployeeSchema = new mongoose.Schema({
 	emailaddr: { type: String, required: true },
 	team: { type: String, required: true },
 	phone: String,
-	//profilephoto: String,
-	creadentials:String,
+	//need change to incorpoarate pics
+	profilephoto: String,
+	aboutme:String,
 	biggestmistake:String,
 	successtory:String,
 	funfact:String,

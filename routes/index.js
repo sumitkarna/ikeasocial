@@ -17,10 +17,10 @@ exports.index = function(req, res) {
 	res.render('index');
 };
 
-// JSON API for list of polls
+// JSON API for list of employee
 exports.list = function(req, res) {
 	// Query Mongo for polls, just get back the question text
-	Employee.find({}, 'fistname', function(error, employee) {
+	Employee.find({}, 'emailaddr', function(error, employee) {
 		res.json(employee);
 	});
 };
@@ -31,23 +31,24 @@ exports.create = function(req, res) {
 	var reqBody = req.body,
 			// Build up employee object to save
 			employeeeObj = {
-				firstname: reqBody.firstname, 
-				lastname:reqBody.lastname,
+				name: reqBody.name, 
+				role:reqBody.role,
+				basedin:reqBody.basedin,
 				emailaddr:reqBody.emailaddr,
 				team:reqBody.team,
-				nickname:reqBody.nickname,
-				officephone:reqBody.officephone,
-				homephone:reqBody.homephone,
-				photos:reqBody.photos,
-				hobbies:reqBody.hobbies,
-				aboutme: reqBody.aboutme,
-				maritialstatus:reqBody.maritialstatus,
-				anniversay:reqBody.anniversay,
-				birthday:reqBody.birthday,
-				facebook: reqBody.facebook,
-				linkedin: reqBody.linkedin,
-				twitter:  reqBody.twitter
-
+				phone:reqBody.phone,
+				//need chage to incorporate pics
+				profilephoto:reqBody.profilephoto,
+				aboutme:reqBody.aboutme,
+				biggestmistake:reqBody.biggestmistake,
+				successtory:reqBody.successtory,
+				funfact: reqBody.funfact,
+				notoverlook:reqBody.notoverlook,
+				yearswithibm:reqBody.yearswithibm,
+				yearswithikea:reqBody.yearswithikea,
+				linkedinlink: reqBody.linkedinlink,
+				twitterlink: reqBody.twitterlink,
+				instagramlink:  reqBody.instagramlink
 		};
 				
 	// Create employee model from built up poll object
