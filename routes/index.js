@@ -3,6 +3,8 @@ var mongoose = require('mongoose');
 var db;
 var cfenv = require('cfenv');
 var appEnv = cfenv.getAppEnv();
+var services = appEnv.services;
+
 if (process.env.VCAP_SERVICES) {
 /*   var env = JSON.parse(process.env.VCAP_SERVICES);
    db = mongoose.createConnection(env['compose-for-mongodb'][0].credentials.url);*/
