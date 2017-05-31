@@ -1,0 +1,174 @@
+<style type="text/css">
+.form-style-1 {
+    margin:10px auto;
+    max-width: 400px;
+    padding: 20px 12px 10px 20px;
+    font: 13px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+.form-style-1 li {
+    padding: 0;
+    display: block;
+    list-style: none;
+    margin: 10px 0 0 0;
+}
+.form-style-1 label{
+    margin:0 0 3px 0;
+    padding:0px;
+    display:block;
+    font-weight: bold;
+}
+.form-style-1 input[type=text], 
+.form-style-1 input[type=date],
+.form-style-1 input[type=datetime],
+.form-style-1 input[type=number],
+.form-style-1 input[type=search],
+.form-style-1 input[type=time],
+.form-style-1 input[type=url],
+.form-style-1 input[type=email],
+textarea, 
+select{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    border:1px solid #BEBEBE;
+    padding: 7px;
+    margin:0px;
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;  
+}
+.form-style-1 input[type=text]:focus, 
+.form-style-1 input[type=date]:focus,
+.form-style-1 input[type=datetime]:focus,
+.form-style-1 input[type=number]:focus,
+.form-style-1 input[type=search]:focus,
+.form-style-1 input[type=time]:focus,
+.form-style-1 input[type=url]:focus,
+.form-style-1 input[type=email]:focus,
+.form-style-1 textarea:focus, 
+.form-style-1 select:focus{
+    -moz-box-shadow: 0 0 8px #88D5E9;
+    -webkit-box-shadow: 0 0 8px #88D5E9;
+    box-shadow: 0 0 8px #88D5E9;
+    border: 1px solid #88D5E9;
+}
+.form-style-1 .field-divided{
+    width: 49%;
+}
+.form-style-1 .field-long{
+    width: 100%;
+}
+.form-style-1 .field-select{
+    width: 100%;
+}
+.form-style-1 .field-textarea{
+    height: 100px;
+}
+.form-style-1 input[type=submit], .form-style-1 input[type=button]{
+    background: #4B99AD;
+    padding: 8px 15px 8px 15px;
+    border: none;
+    color: #fff;
+}
+.form-style-1 input[type=submit]:hover, .form-style-1 input[type=button]:hover{
+    background: #4691A4;
+    box-shadow:none;
+    -moz-box-shadow:none;
+    -webkit-box-shadow:none;
+}
+.form-style-1 .required{
+    color:red;
+}
+</style>
+<form role="form" ng-submit="createEmployee()" ng-controller="EmployeeNewCtrl" >
+<ul class="form-style-1">
+	<h1> Know Each Other!</h1>
+    <li><label>Name <span class="required">*</span></label><input type="text" ng-model="employee.name" name="name" id="name" class="field-divided" placeholder="Name" /></li>
+    <li><label>Role <span class="required">*</span></label><input type="text" ng-model="employee.role" name="role" id="role" class="field-divided" placeholder="Role" /></li>
+    <li>
+        <label>Based in <span class="required">*</span></label>
+        <input type="text" ng-model="employee.basedin" name="basedin" id="basedin" class="field-long" />
+    </li>
+	<li>
+	<label>Profile Photo </label><input type="file" ng-model="employee.profilephoto" name="profilephoto" id="profilephoto" class="field-divided" placeholder="Name" />
+	</li>
+	<li>
+        <label>Email <span class="required">*</span></label>
+        <input type="email" ng-model="employee.emailaddr" name="emailaddr" id="emailaddr" class="field-long" />
+    </li>
+	<li>
+        <label>About Me </label>
+        <input type="text" ng-model="employee.aboutme" name="aboutme" id="aboutme" class="field-long" />
+    </li>
+    <li>
+        <label>Phone </label>
+        <input type="text" ng-model="employee.phone" name="phone" id="phone" class="field-long" />
+    </li>
+	<li>
+        <label>Team</label>
+        <select name="team" id="team" ng-model="employee.team" class="field-select">
+        <option value="nwp">NWP</option>
+        <option value="testing">Testing</option>
+        <option value="som">SOM</option>
+        </select>
+    </li>
+    <li>
+        <label>Biggest Mistake <span class="required">*</span></label>
+        <textarea name="biggestmistake" ng-model="employee.biggestmistake" id="biggestmistake" class="field-long field-textarea"></textarea>
+    </li>
+	<li>
+        <label>Success Story </label>
+        <textarea name="successtory" ng-model="employee.successtory" id="successtory" class="field-long field-textarea"></textarea>
+    </li>
+	<li>
+        <label>Fun Fact </label>
+        <textarea name="funfact" id="funfact" ng-model="employee.funfact" class="field-long field-textarea"></textarea>
+    </li>
+	<li>
+        <label>Watch out for </label>
+        <textarea name="watchoutfor" id="watchoutfor" ng-model="employee.watchoutfor" class="field-long field-textarea"></textarea>
+    </li>
+	<li>
+        <label>Don't overlook</label>
+        <textarea name="notoverlook" id="notoverlook" ng-model="employee.notoverlook" class="field-long field-textarea"></textarea>
+    </li>
+	<li>
+        <label>Years with IBM <span class="required">*</span></label>
+        <input type="text" ng-model="employee.yearswithibm" name="yearswithibm" id="yearswithibm" class="field-long" />
+    </li>
+	<li>
+        <label>Years with IKEA <span class="required">*</span></label>
+        <input type="text" ng-model="employee.yearswithikea" name="yearswithikea"id="yearswithikea" class="field-long" />
+    </li>
+	<li>
+        <label>Facebook link </label>
+        <input type="text" ng-model="employee.facebookilink" name="facebooklink" id="facebooklink" class="field-long" />
+    </li>
+    <li>
+        <label>Twitter link </label>
+        <input type="text" ng-model="employee.twitterlink" name="twitterlink" id="twitterlink" class="field-long" />
+    </li>
+	<li>
+        <label>Linked In link </label>
+        <input type="text" ng-model="employee.linkedinlink" name="linkedinlink" id="linkedinlink" class="field-long" />
+    </li>
+	<li>
+        <label>Instagram link </label>
+        <input type="text" ng-model="employee.instagramlink" name="instagramlink"id="instagramlink" class="field-long" />
+    </li>
+	
+	<div class="row">
+		<div class="col-xs-6">
+			<a href="#/employee" class="btn btn-default" role="button"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
+		</div>
+		<div class="col-xs-6">
+			<button class="btn btn-primary pull-right" type="submit">submit &raquo;</button>
+		</div>
+	</div>
+	
+	<p>&nbsp;</p>
+    
+</ul>
+</form>
