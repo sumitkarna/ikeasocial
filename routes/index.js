@@ -18,6 +18,7 @@ exports.index = function(req, res) {
 };
 
 // JSON API for list of employee
+
 exports.list = function(req, res) {
 	// Query Mongo for polls, just get back the question text
 	Employee.find({}, 'emailaddr', function(error, employee) {
