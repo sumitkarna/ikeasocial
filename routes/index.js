@@ -7,9 +7,12 @@ if (process.env.VCAP_SERVICES) {
 /*   var env = JSON.parse(process.env.VCAP_SERVICES);
    db = mongoose.createConnection(env['compose-for-mongodb'][0].credentials.url);*/
 var mongoDbUrl, mongoDbOptions = {};
-var mongoDbCredentials = appEnv.getServiceCreds("compose-for-mongodb").credentials;
-var ca = [new Buffer(mongoDbCredentials.ca_certificate_base64, 'base64')];
-mongoDbUrl = mongoDbCredentials.uri;
+var mongodb_services = services["compose-for-mongodb"];
+
+var credentials = mongodb_services[0].credentials;
+
+var ca = [new Buffer(credentials.ca_certificate_base64, 'base64')];
+mongoDbUrl = credentials.uri;
 mongoDbOptions = {
   mongos: {
     ssl: true,
@@ -19,6 +22,8 @@ mongoDbOptions = {
     reconnectTries: 1
   }
 };
+
+
 console.log("Connecting to", mongoDbUrl);
 mongoose.connect(mongoDbUrl, mongoDbOptions);
 } else {
