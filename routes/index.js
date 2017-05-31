@@ -2,7 +2,7 @@
 var mongoose = require('mongoose');
 var db;
 var cfenv = require('cfenv');
-var appenv = cfenv.getAppEnv();
+var appEnv = cfenv.getAppEnv();
 if (process.env.VCAP_SERVICES) {
 /*   var env = JSON.parse(process.env.VCAP_SERVICES);
    db = mongoose.createConnection(env['compose-for-mongodb'][0].credentials.url);*/
