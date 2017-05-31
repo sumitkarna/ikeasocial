@@ -3,10 +3,43 @@ var mongoose = require('mongoose');
 var db;
 if (process.env.VCAP_SERVICES) {
    var env = JSON.parse(process.env.VCAP_SERVICES);
-   db = mongoose.createConnection(env['mongodb-2.2'][0].credentials.url);
+   db = mongoose.createConnection(env['compose-for-mongodb'][0].credentials.url);
 } else {
    db = mongoose.createConnection('localhost', 'ikeasocialapp');
 }
+
+
+/*var MongoClient = require("mongodb").MongoClient;
+
+
+var services = appEnv.services;
+
+var mongodb_services = services["compose-for-mongodb"];
+
+var credentials = mongodb_services[0].credentials;
+
+var ca = [new Buffer(credentials.ca_certificate_base64, 'base64')];
+
+var mongodb;
+
+MongoClient.connect(credentials.uri, {
+        mongos: {
+            ssl: true,
+            sslValidate: true,
+            sslCA: ca,
+            poolSize: 1,
+            reconnectTries: 1
+        }
+    },
+    function(err, db) {
+        if (err) {
+            console.log(err);
+        } else {
+            mongodb = db.db("events");
+        }
+    }
+);*/
+
 
 // Get Employee schema and model
 var EmployeeSchema = require('../models/IkeasocialSchema.js').EmployeeSchema;
