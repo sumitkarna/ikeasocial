@@ -27,7 +27,7 @@ mongoDbOptions = {
 
 
 console.log("Connecting to", mongoDbUrl);
-mongoose.connect(mongoDbUrl, mongoDbOptions);
+	db= mongoose.connect(mongoDbUrl, mongoDbOptions);
 } else {
    db = mongoose.createConnection('localhost', 'ikeasocialapp');
 }
