@@ -83,77 +83,81 @@ select{
     color:red;
 }
 </style>
-<form>
+<form role="form" ng-submit="createEmployee()" ng-controller="EmployeeNewCtrl" >
 <ul class="form-style-1">
 	<h1> Know Each Other!</h1>
-    <li><label>Name <span class="required">*</span></label><input type="text" name="field1" class="field-divided" placeholder="Name" /></li>
-    <li><label>Role <span class="required">*</span></label><input type="text" name="field1" class="field-divided" placeholder="Role" /></li>
+    <li><label>Name <span class="required">*</span></label><input type="text" ng-model="employee.name" name="field1" class="field-divided" placeholder="Name" /></li>
+    <li><label>Role <span class="required">*</span></label><input type="text" ng-model="employee.role" name="field1" class="field-divided" placeholder="Role" /></li>
     <li>
         <label>Based in <span class="required">*</span></label>
-        <input type="text" name="field3" class="field-long" />
+        <input type="text" ng-model="employee.basedin" name="field3" class="field-long" />
     </li>
 	<li>
-	<label>Profile Photo </label><input type="file" name="field1" class="field-divided" placeholder="Name" />
+	<label>Profile Photo </label><input type="file" ng-model="employee.profilephoto" name="field1" class="field-divided" placeholder="Name" />
 	</li>
 	<li>
         <label>Email <span class="required">*</span></label>
-        <input type="email" name="field3" class="field-long" />
+        <input type="email" ng-model="employee.emailaddr" name="field3" class="field-long" />
     </li>
 	<li>
-        <label>Credentials <span class="required">*</span></label>
-        <input type="text" name="field3" class="field-long" />
+        <label>About Me </label>
+        <input type="text" ng-model="employee.aboutme" name="field3" class="field-long" />
     </li>
     <li>
-        <label>Teams</label>
-        <select name="field4" class="field-select">
-        <option value="Advertise">NWP</option>
-        <option value="Partnership">Testing</option>
-        <option value="General Question">SOM</option>
+        <label>Phone </label>
+        <input type="text" ng-model="employee.phone" name="field3" class="field-long" />
+    </li>
+	<li>
+        <label>Team</label>
+        <select name="field4" ng-model="employee.team" class="field-select">
+        <option value="nwp">NWP</option>
+        <option value="testing">Testing</option>
+        <option value="som">SOM</option>
         </select>
     </li>
     <li>
         <label>Biggest Mistake <span class="required">*</span></label>
-        <textarea name="field5" id="field5" class="field-long field-textarea"></textarea>
+        <textarea name="field5" ng-model="employee.biggestmistake" id="field5" class="field-long field-textarea"></textarea>
     </li>
 	<li>
         <label>Success Story </label>
-        <textarea name="field5" id="field5" class="field-long field-textarea"></textarea>
+        <textarea name="field5" ng-model="employee.successtory" id="field5" class="field-long field-textarea"></textarea>
     </li>
 	<li>
         <label>Fun Fact </label>
-        <textarea name="field5" id="field5" class="field-long field-textarea"></textarea>
+        <textarea name="field5" id="field5" ng-model="employee.funfact" class="field-long field-textarea"></textarea>
     </li>
 	<li>
         <label>Watch out for </label>
-        <textarea name="field5" id="field5" class="field-long field-textarea"></textarea>
+        <textarea name="field5" id="field5" ng-model="employee.watchoutfor" class="field-long field-textarea"></textarea>
     </li>
 	<li>
         <label>Don't overlook</label>
-        <textarea name="field5" id="field5" class="field-long field-textarea"></textarea>
+        <textarea name="field5" id="field5" ng-model="employee.notoverlook" class="field-long field-textarea"></textarea>
     </li>
 	<li>
         <label>Years with IBM <span class="required">*</span></label>
-        <input type="text" name="field3" class="field-long" />
+        <input type="text" ng-model="employee.yearswithibm" name="field3" class="field-long" />
     </li>
 	<li>
         <label>Years with IKEA <span class="required">*</span></label>
-        <input type="text" name="field3" class="field-long" />
+        <input type="text" ng-model="employee.yearswithikea" name="field3" class="field-long" />
     </li>
 	<li>
         <label>Facebook link </label>
-        <input type="text" name="field3" class="field-long" />
+        <input type="text" ng-model="employee.facebookilink" name="field3" class="field-long" />
     </li>
     <li>
         <label>Twitter link </label>
-        <input type="text" name="field3" class="field-long" />
+        <input type="text" ng-model="employee.twitterlink" name="field3" class="field-long" />
     </li>
 	<li>
         <label>Linked In link </label>
-        <input type="text" name="field3" class="field-long" />
+        <input type="text" ng-model="employee.linkedinlink" name="field3" class="field-long" />
     </li>
 	<li>
         <label>Instagram link </label>
-        <input type="text" name="field3" class="field-long" />
+        <input type="text" ng-model="employee.instagramlink" name="field3" class="field-long" />
     </li>
 	
 	<li>
