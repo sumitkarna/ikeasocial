@@ -1,12 +1,6 @@
 // Connect to MongoDB using Mongoose
-var mongoose = require('mongoose');
-var db;
-if (process.env.VCAP_SERVICES) {
-   var env = JSON.parse(process.env.VCAP_SERVICES);
-   db = mongoose.createConnection(env['mongodb-2.2'][0].credentials.url);
-} else {
-   db = mongoose.createConnection('localhost', 'ikeasocialapp');
-}
+var db = require( 'dbservice').db;
+
 
 // Get Employee schema and model
 var EmployeeSchema = require('../models/IkeasocialSchema.js').EmployeeSchema;
@@ -77,3 +71,9 @@ exports.create = function(req, res) {
 		}		
 	});
 };
+
+{
+	create: create,
+	delete: delete,
+	update: update
+}
