@@ -10,6 +10,7 @@
 		"socket.io": "~0.9.16",
 		"jade": "*",
 		"mongoose": ">= 3.8.0",
-    "cfenv": "latest"
+   		"cfenv": "latest",
+	  	"mongodb":"latest"
   }
 }
