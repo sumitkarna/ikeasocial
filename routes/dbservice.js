@@ -2,7 +2,7 @@
 var mongoose = require('mongoose');
 var db;
 var cfenv = require('cfenv');
-var appenv = cfenv.getAppEnv();
+var appEnv = cfenv.getAppEnv();
 
 var services = appEnv.services;
 
