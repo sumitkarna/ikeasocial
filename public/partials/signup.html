@@ -1,0 +1,33 @@
+<div class="page-header">
+	<h1>Employee Sign up</h1>
+</div>
+<form role="form" ng-submit="createSignup()" ng-controller="EmployeeSignUpCtrl">
+	<div class="form-group">
+		<label for="userid">UserId</label>
+		<input type="text" ng-model="employee.userid" class="form-control" id="userid" placeholder="Enter User Id">
+	</div>
+	<div class="form-group">
+		<label for="password">Password</label>
+		<input type="text" ng-model="employee.password" class="form-control" id="password" placeholder="Enter Password">
+	</div>
+	<!-- integrating with vs for jyothi-->
+	<div class="form-group">
+		<label for="hintquestion">Hint Question</label>
+		<input type="text" ng-model="employee.hintquestion" class="form-control" id="hintquestion" placeholder="Enter Hint Question">
+	</div>
+	<div class="form-group">
+
+		<label for="hintanswer">Hint Answer</label>
+		<input type="text" ng-model="employee.hintanswer" class="form-control" id="hintanswer" placeholder="Enter Hint Answer">
+	</div>
+	<div class="row">
+		<div class="col-xs-6">
+			<a href="#/employee" class="btn btn-default" role="button"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
+		</div>
+		<div class="col-xs-6">
+			<a href="#/new" class="btn btn-default" role="button">submit &raquo;</button>
+		</div>
+	</div>
+
+<p>&nbsp;</p>
+</form>

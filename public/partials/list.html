@@ -1,0 +1,28 @@
+<div class="page-header">
+	<h1>List of Employees</h1>
+</div>
+<div class="row">
+	<div class="col-xs-5">
+		<a href="#/new" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span>Employee List</a>
+	</div>
+	<div class="col-xs-7">
+		<input type="text" class="form-control" ng-model="query" placeholder="Search for a poll">
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-12"><hr></div>
+</div>
+<b>Employee Name</b>&nbsp;&nbsp;<b>Team</b>
+<div class="row" ng-switch on="employees.length">
+	<ul ng-switch-when="0">
+		<li><em>No Employee Details Available. Would you like to <a href="#/new">create one</a>?</li>
+	</ul>
+	<ul ng-switch-default>
+		
+		<li ng-repeat="employee in employees | filter:query">
+		
+			<a href="#/employee/{{employee._id}}">{{employee.name}}</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{employee.team}}
+		</li>
+	</ul>
+</div>
+<p>&nbsp;</p>

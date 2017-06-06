@@ -1,0 +1,33 @@
+<div class="page-header">
+	<h1>Enter Employee informatioin</h1>
+</div>
+
+<form role="form" ng-submit="createEmployee()" ng-controller="EmployeeNewCtrl">
+	<div class="form-group">
+		<label for="firstName">First Name</label>
+		<input type="text" ng-model="employee.firstname" class="form-control" id="firstname" placeholder="Enter First Name">
+	</div>
+	<div class="form-group">
+		<label for="LastName">Last Name</label>
+		<input type="text" ng-model="employee.lastname" class="form-control" id="lastname" placeholder="Enter Last Name">
+	</div>
+	<p><hr></p>
+	
+	<div class="row">
+		<div class="col-xs-6">
+			<a href="#/polls" class="btn btn-default" role="button"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
+		</div>
+		<div class="col-xs-6">
+			<button class="btn btn-primary pull-right" type="submit">submit &raquo;</button>
+		</div>
+	</div>
+	
+	<p>&nbsp;</p>
+</form>
+
+
+
+      <div ng-controller="OrgCtrl">
+        <div google-chart chart="chart"/>
+      </div>
+   
