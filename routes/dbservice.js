@@ -3,34 +3,24 @@ var mongoose = require('mongoose');
 var db;
 var cfenv = require('cfenv');
 var appenv = cfenv.getAppEnv();
-var MongoClient = require("mongodb").MongoClient;
-var services = appenv.services;
 
 if (process.env.VCAP_SERVICES) { 
 
-var mongodb_services = services["compose-for-mongodb"];
-
-var credentials = mongodb_services[0].credentials;
-
-var ca = [new Buffer(credentials.ca_certificate_base64, 'base64')];
-
-MongoClient.connect(credentials.uri, {
-        mongos: {
-            ssl: true,
-            sslValidate: true,
-            sslCA: ca,
-            poolSize: 1,
-            reconnectTries: 1
-        }
-    },
-    function(err, db) {
-        if (err) {
-            console.log(err);
-        } else {
-            db = db.db("events");
-        }
-    }
-);
+var mongoDbUrl, mongoDbOptions = {};
+var mongoDbCredentials = appEnv.getServiceCreds("compose-for-mongodb").credentials;
+var ca = [new Buffer(mongoDbCredentials.ca_certificate_base64, 'base64')];
+mongoDbUrl = mongoDbCredentials.uri;
+mongoDbOptions = {
+mongos: {
+  ssl: true,
+    sslValidate: true,
+    sslCA: ca,
+    poolSize: 1,
+    reconnectTries: 1
+  }
+};
+console.log("Connecting to", mongoDbUrl);
+db= mongoose.connect(mongoDbUrl, mongoDbOptions);
 } else {
    db = mongoose.createConnection('localhost', 'ikeasocialapp');
 }
