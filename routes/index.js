@@ -72,8 +72,3 @@ exports.create = function(req, res) {
 	});
 };
 
-{
-	create: create,
-	delete: delete,
-	update: update
-}
