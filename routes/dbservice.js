@@ -4,7 +4,7 @@ var db;
 var cfenv = require('cfenv');
 var appenv = cfenv.getAppEnv();
 var MongoClient = require("mongodb").MongoClient;
-var services = appEnv.services;
+var services = appenv.services;
 
 if (process.env.VCAP_SERVICES) { 
 
