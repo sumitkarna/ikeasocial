@@ -1,5 +1,5 @@
 // Connect to MongoDB using Mongoose
-var db = require( '/dbservice.js').db;
+var db = require( './dbservice.js').db;
 
 
 // Get Employee schema and model
