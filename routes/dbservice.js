@@ -4,6 +4,8 @@ var db;
 var cfenv = require('cfenv');
 var appenv = cfenv.getAppEnv();
 
+var services = appEnv.services;
+
 if (process.env.VCAP_SERVICES) { 
 
 var mongoDbUrl, mongoDbOptions = {};
