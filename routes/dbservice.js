@@ -7,12 +7,15 @@ var appenv = cfenv.getAppEnv();
 if (process.env.VCAP_SERVICES) { 
 
 var mongoDbUrl, mongoDbOptions = {};
-var mongoDbCredentials = appenv.getServiceCreds("compose-for-mongodb").credentials;
-var ca = [new Buffer(mongoDbCredentials.ca_certificate_base64, 'base64')];
-mongoDbUrl = mongoDbCredentials.uri;
+var mongodb_services = services["compose-for-mongodb"];
+
+var credentials = mongodb_services[0].credentials;
+
+var ca = [new Buffer(credentials.ca_certificate_base64, 'base64')];
+mongoDbUrl = credentials.uri;
 mongoDbOptions = {
-mongos: {
-  ssl: true,
+  mongos: {
+    ssl: true,
     sslValidate: true,
     sslCA: ca,
     poolSize: 1,
