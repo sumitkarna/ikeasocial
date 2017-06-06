@@ -1,4 +1,4 @@
-var db = require( 'dbservice').db;
+var db = require( '/dbservice').db;
 
 var UserSchema = require('../models/IkeasocialSchema.js').UserSchema;
 var User = db.model('users', UserSchema,'users');
