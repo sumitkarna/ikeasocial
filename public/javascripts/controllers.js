@@ -1,20 +1,21 @@
 
 var empapp= angular
         .module('employees');
-        empapp.controller('EmployeeListCtrl', EmployeeLisCtrl);
-		empapp.controller('EmployeeDetailItemCtrl', EmployeeDetailItemCtrl);
+        empapp.controller('EmployeeListCtrl', EmployeeListCtrl);
+		//empapp.controller('EmployeeDetailItemCtrl', EmployeeDetailItemCtrl);
 		//empapp.controller('EmployeeNewCtrl', EmployeeNewCtrl);
 		empapp.controller('OrgCtrl',OrgCtrl);
 
 // Controller for the poll list
-function EmployeeLisCtrl($scope, Employee) {
+function EmployeeListCtrl($scope, Employee) {
 	$scope.employees = Employee.query();
 }
 
 // Controller for an individual Employee
+/*
 function EmployeeDetailItemCtrl($scope, $routeParams, socket, Employee) {	
 	$scope.employee = Employee.get({employeeId: $routeParams.employeeId});
-}
+}*/
 
 // Controller for creating a new employee
 /*function EmployeeNewCtrl($scope, $location, Employee) {
@@ -43,7 +44,7 @@ function EmployeeDetailItemCtrl($scope, $routeParams, socket, Employee) {
 							if(!p.error) {
 								// If there is no error, redirect to the main view
 								//need change
-								$location.path('signup');
+								$location.path('/home');
 							} else {
 									alert('Could not create employee');
 							}

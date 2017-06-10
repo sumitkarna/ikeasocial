@@ -15,6 +15,7 @@
         service.Create = Create;
         service.Update = Update;
         service.Delete = Delete;
+        service.GetEmployeeDetailsById = GetEmployeeDetailsById;
 
         return service;
 
@@ -26,6 +27,9 @@
             return $http.get('/api/employees/' + id).then(handleSuccess, handleError('Error getting user by id'));
         }
 
+function GetEmployeeDetailsById(id) {
+            return $http.get('/api/employeDetails/' + id).then(handleSuccess, handleError('Error getting user by id'));
+        }
         function GetByEmployeename(employeename) {
             return $http.get('/api/employees/' + employeename).then(handleSuccess, handleError('Error getting user by username'));
         }
@@ -45,6 +49,7 @@
         // private functions
 
         function handleSuccess(res) {
+           // alert("I am here");
             return res.data;
         }
 

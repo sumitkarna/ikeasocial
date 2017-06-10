@@ -58,7 +58,7 @@
             var cookieExp = new Date();
             cookieExp.setDate(cookieExp.getDate() + 7);
           //  $cookieStore.put('globals', $rootScope.globals);
-         $cookies.put('globals', $rootScope.globals, { expires: cookieExp });
+         $cookies.putObject('globals', $rootScope.globals, { expires: cookieExp });
          // $cookies.globals = $rootScope.globals;
           //$cookiesProvider
         }

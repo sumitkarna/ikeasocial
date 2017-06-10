@@ -3,8 +3,8 @@
         .module('employees')
         .controller('LoginController', LoginController);
 
-    LoginController.$inject = ['$location', 'AuthenticationService', 'FlashService'];
-    function LoginController($location, AuthenticationService, FlashService) {
+    LoginController.$inject = ['$location', 'AuthenticationService', 'FlashService', 'EmployeeService'];
+    function LoginController($location, AuthenticationService, FlashService, EmployeeService) {
         var vm = this;
 
         vm.login = login;
@@ -19,7 +19,15 @@
             AuthenticationService.Login(vm.username, vm.password, function (response) {
                 if (response.success) {
                     AuthenticationService.SetCredentials(vm.username, vm.password);
-                    $location.path('/new');
+                    EmployeeService.GetById(vm.username)
+                .then(function (resp) {
+                        if(resp.data.noRecords){
+                            $location.path('/new');
+                        }else {
+                            $location.path('/employee/'+vm.username);
+                        }
+                    });
+                   
                 } else {
                     FlashService.Error(response.message);
                     vm.dataLoading = false;

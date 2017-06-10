@@ -1,10 +1,12 @@
-<div class="col-md-6 col-md-offset-3">
-    <h2>Login</h2>
-    <form name="form" ng-submit="vm.login()" role="form">
-        <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
-            <label for="username">Username</label>
-            <input type="text" name="username" id="username" class="form-control" ng-model="vm.username" required />
-            <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
+
+                <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
+      <h2> Login</h2>
+       <form name="form" ng-submit="vm.login()" role="form">
+        <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && (form.username.$error.required  || form.username.$error.pattern)}">
+            <label for="username">Email</label>
+            <input type="username" name="username" id="username" class="form-control" ng-model="vm.username" ng-pattern="/^[A-Za-z0-9._%+-]+@in.ibm.com$/" required />
+           <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
+           <span ng-show="form.username.$dirty && form.username.$error.pattern" class="help-block">Email id in the format employeeId@in.ibm.com</span>
         </div>
         <div class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
             <label for="password">Password</label>

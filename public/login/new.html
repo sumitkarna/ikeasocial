@@ -1,33 +1,359 @@
-<div class="page-header">
-	<h1>Enter Employee informatioin</h1>
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Know Each Other</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all">
+		<link rel="stylesheet" href="stylesheets/profileCreation.css">		
+  </head>
+
+  <body>
+       <div>		
+					<form class="well form-horizontal" role="form" ng-submit="createEmployee()" ng-controller="EmployeeNewCtrl" id="contact_form">
+					<fieldset>
+							<!-- Form Name -->
+							<legend><b><span id="head-title"> Know Each Other! </span></b></legend>
+							
+							<!-- Text input-->
+							<div class="form-group hvr-grow"  style="float: left; margin-left: -6em;">
+								<label class="col-md-4 control-label">Name *</label>  
+									<div class="col-md-4 inputGroupContainer">
+										<div class="input-group margin-1">
+										<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+										<input  name="name" title="Name" style="width: 25em;" ng-model="employee.name" required="required" placeholder="Name" class="form-control"  type="text">
+										</div>
+								</div>
+							</div>
+
+							<!-- Text input-->				
+							<div class="form-group hvr-grow">
+								<label style="margin-left:5.4em;" class="col-md-4 control-label" >Role *</label> 
+									<div class="col-md-4 inputGroupContainer">
+										<div class="input-group ">
+										<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+										<input required="required"  name="role" ng-model="employee.role" style="width:25em;" placeholder="Role" class="form-control"  type="text">
+									</div>
+								</div>
+							</div>
+
+							<!-- Text input-->				
+							<div class="form-group hvr-grow" style="float: left; margin-left: -6.5em;">
+								<label class="col-md-4 control-label" >Location *</label> 
+									<div class="col-md-4 inputGroupContainer">
+										<div class="input-group  margin-1">
+										<span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
+										<input required="required" ng-model="employee.basedin" name="basedin" style="width:25em;" placeholder="Location" class="form-control"  type="text">
+									</div>
+								</div>
+							</div>
+
+							<!-- Text input-->
+								<div class="form-group hvr-grow" style="float: left; margin-left: 5em;">
+									<label class="col-md-4 control-label">E-Mail *</label>  
+									<div class="col-md-4 inputGroupContainer">
+										<div class="input-group">
+									 		<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+										<input ng-model="employee.emailaddr" name="emailaddr" required="required" placeholder="E-Mail Address" style="width:25em;" class="form-control"  type="email">
+									</div>
+								</div>
+							</div>
+
+							<!-- Team dropdown-->
+							<div class="form-group" style="float: left; margin-left: -4.5em;  margin-top: 1em;">
+								<label class="col-md-4 control-label">Team *</label>  
+									<div class="col-md-4 inputGroupContainer">
+										<div class="input-group">
+											<span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+											<select name="team" id="team" ng-model="employee.team" required="required" style="width:25em;" class="form-control selectpicker" >
+												<option value=" " >Please select your team</option>
+												<option >Corporate Support</option>
+												<option >e-Com</option>
+												<option>SOM</option>
+												<option >Testing</option>
+											</select>
+										</div>
+								</div>
+							</div>
+										
+								<!-- Text input-->      
+							<div class="form-group hvr-grow" style="float: left; margin-left: 5.7em;  margin-top: 1em;">
+								<label class="col-md-4 control-label">Phone #</label>  
+									<div class="col-md-4 inputGroupContainer">
+										<div class="input-group">
+											<span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
+										<input ng-model="employee.phone" name="phone" id="phone" style="width:25em;" placeholder="(91)9000000001" class="form-control" type="text">
+									</div>
+								</div>
+							</div>
+
+							<!-- Text input-->				
+							<div class="form-group hvr-grow">
+								<label class="col-md-4 control-label" style=" margin-left: -4em; margin-top: 2em;">About Me</label> 
+									<div class="col-md-4 inputGroupContainer">
+										<div class="input-group" style=" margin-left: 1.1em;margin-top: 2em;width: 28em;">
+											<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+											<textarea ng-model="employee.aboutme" name="aboutme" id="aboutme" placeholder="About me" class="form-control" > </textarea>
+										</div>
+								</div>
+							</div>
+						<!-- Text area -->				  
+							<div class="form-group hvr-grow" style="margin-left: 34em; margin-top: -8em;">
+								<label class="col-md-4 control-label">Not to overlook</label>
+									<div class="col-md-4 inputGroupContainer">
+										<div class="input-group">
+											<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+											<textarea class="form-control"  style="width:25em;" name="notoverlook" id="notoverlook" ng-model="employee.notoverlook" placeholder="Not to overlook"></textarea>
+									</div>
+								</div>
+							</div>
+							<!-- Text input-->				
+							<div class="form-group hvr-grow"  style="margin-top: -1.2em;">
+								<label class="col-md-4 control-label" style=" margin-left: -2.7em; margin-top: 1em;">Biggest Mistake</label> 
+									<div class="col-md-4 inputGroupContainer">
+										<div class="input-group" style=" margin-left: -0.8em;margin-top: 1em;width: 28em;">
+											<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+											<textarea name="biggestmistake" ng-model="employee.biggestmistake" id="biggestmistake" placeholder="Biggest Mistake" class="form-control" > </textarea>
+										</div>
+								</div>
+							</div>
+
+							<!-- Text area -->				  
+							<div class="form-group hvr-grow" style="float: left; margin-left: 34.5em;  margin-top: -6.5em;">
+								<label class="col-md-4 control-label">Success Story</label>
+									<div class="col-md-4 inputGroupContainer">
+										<div class="input-group">
+											<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+											<textarea class="form-control"  style="width:25em;" name="successtory" ng-model="employee.successtory" id="successtory" placeholder="Success Story"></textarea>
+										</div>
+								</div>
+							</div>
+											<!-- Text input-->				
+							<div class="form-group">
+								<label class="col-md-4 control-label" style=" margin-left: -17.8em; margin-top: 1em;">Funfact</label> 
+									<div class="col-md-4 inputGroupContainer">
+										<div class="input-group" style=" margin-left: -0.8em;margin-top: 1em;width: 28em;">
+											<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+											<textarea name="funfact" id="funfact" ng-model="employee.funfact" placeholder="Funfact" class="form-control" > </textarea>
+										</div>
+								</div>
+							</div>
+
+							<!-- Text area -->				  
+							<div class="form-group hvr-grow" style="float: left; margin-left: 34.6em;  margin-top: -6.5em;">
+								<label class="col-md-4 control-label">Watch Out for</label>
+									<div class="col-md-4 inputGroupContainer">
+										<div class="input-group">
+											<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+											<textarea class="form-control"  style="width:25em;" name="watchoutfor" id="watchoutfor" ng-model="employee.watchoutfor"  placeholder="watch out for"></textarea>
+										</div>
+								</div>
+							</div>
+
+							<div class="form-group" style="float: left; margin-left: -7em;  margin-top: 1em;">
+								<label class="col-md-4 control-label">Years in IBM </label>  
+									<div class="col-md-4 inputGroupContainer">
+										<div class="input-group">
+											<span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+											<select name="yearsInIbm" id="team" ng-model="employee.monthsinibm" required="required" style="width:12em;" class="form-control selectpicker" >
+												<option value="Jan">Jan </option>
+												<option value="Feb">Feb </option>
+												<option value="Mar">Mar</option>
+												<option value="Apr">Apr</option>
+												<option value="May">May</option>
+												<option value="Jun">Jun</option>
+												<option value="Jul">Jul</option>
+												<option value="Aug">Aug </option>
+												<option value="Sep">Sep</option>
+												<option value="Oct">Oct </option>
+												<option value="Nov">Nov </option>
+												<option value="Dec">Dec</option>
+											</select>
+										</div>
+								</div>
+								<div class="col-md-4 inputGroupContainer">
+										<div class="input-group yearsinibm ">
+											<span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+											<select name="yearsInIbm" id="team" ng-model="employee.monthsinibm" required="required" style="width:12em;" class="form-control selectpicker" >
+												<option value="Jan">2017 </option>
+												<option value="Feb">2016 </option>
+												<option value="Mar">2015</option>
+												<option value="Apr">2014</option>
+												<option value="May">2013</option>
+												<option value="Jun">2012</option>
+												<option value="Jul">2011</option>
+												<option value="Aug">2010 </option>
+												<option value="Sep">2009</option>
+												<option value="Oct">2008 </option>
+												<option value="Nov">2007 </option>
+												<option value="Dec">2006</option>
+											</select>
+										</div>
+								</div>
+							</div>
+
+
+							<div class="form-group" style="float: left; margin-left: -1em;  margin-top: 1em;">
+								<label class="col-md-4 control-label">Years in IKEA </label>  
+									<div class="col-md-4 inputGroupContainer">
+										<div class="input-group yearsikeadiv">
+											<span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+											<select name="yearsInIbm" id="team" ng-model="employee.monthsinibm" required="required" style="width:12em;" class="form-control selectpicker" >
+												<option value="Jan">Jan </option>
+												<option value="Feb">Feb </option>
+												<option value="Mar">Mar</option>
+												<option value="Apr">Apr</option>
+												<option value="May">May</option>
+												<option value="Jun">Jun</option>
+												<option value="Jul">Jul</option>
+												<option value="Aug">Aug </option>
+												<option value="Sep">Sep</option>
+												<option value="Oct">Oct </option>
+												<option value="Nov">Nov </option>
+												<option value="Dec">Dec</option>
+											</select>
+										</div>
+								</div>
+								<div class="col-md-4 inputGroupContainer">
+										<div class="input-group">
+											<span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+											<select name="yearsInIbm" id="team" ng-model="employee.monthsinibm" required="required" style="width:12em;" class="form-control selectpicker" >
+												<option value="Jan">2017 </option>
+												<option value="Feb">2016 </option>
+												<option value="Mar">2015</option>
+												<option value="Apr">2014</option>
+												<option value="May">2013</option>
+												<option value="Jun">2012</option>
+												<option value="Jul">2011</option>
+											</select>
+										</div>
+								</div>
+							</div>					
+
+						<div class="form-group" style="float: left; margin-left: -6.2em;  margin-top: 1em;">
+								<label class="col-md-4 control-label">Birthday </label>  
+									<div class="col-md-4 inputGroupContainer">
+										<div class="input-group">
+											<span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+											<select name="yearsInIbm" id="team" ng-model="employee.monthsinibm" required="required" style="width:12em;" class="form-control selectpicker" >
+												<option value="Jan">Jan </option>
+												<option value="Feb">Feb </option>
+												<option value="Mar">Mar</option>
+												<option value="Apr">Apr</option>
+												<option value="May">May</option>
+												<option value="Jun">Jun</option>
+												<option value="Jul">Jul</option>
+												<option value="Aug">Aug </option>
+												<option value="Sep">Sep</option>
+												<option value="Oct">Oct </option>
+												<option value="Nov">Nov </option>
+												<option value="Dec">Dec</option>
+											</select>
+										</div>
+								</div>
+								<div class="col-md-4 inputGroupContainer">
+										<div class="input-group birthday">
+											<span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+											<select name="yearsInIbm" id="team" ng-model="employee.monthsinibm" required="required" style="width:12em;" class="form-control selectpicker" >
+												<option value="Jan">2017 </option>
+												<option value="Feb">2016 </option>
+												<option value="Mar">2015</option>
+												<option value="Apr">2014</option>
+												<option value="May">2013</option>
+												<option value="Jun">2012</option>
+												<option value="Jul">2011</option>
+												<option value="Aug">2010 </option>
+												<option value="Sep">2009</option>
+												<option value="Oct">2008 </option>
+												<option value="Nov">2007 </option>
+												<option value="Dec">2006</option>
+											</select>
+										</div>
+								</div>
+							</div>
+
+
+							<div class="form-group" style="float: left; margin-left: 0.4em;  margin-top: 1em;">
+								<label class="col-md-4 control-label">Anniversary </label>  
+									<div class="col-md-4 inputGroupContainer">
+										<div class="input-group anniversary">
+											<span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+											<select name="yearsInIbm" id="team" ng-model="employee.monthsinibm" required="required" style="width:12em;" class="form-control selectpicker" >
+												<option value="Jan">Jan </option>
+												<option value="Feb">Feb </option>
+												<option value="Mar">Mar</option>
+												<option value="Apr">Apr</option>
+												<option value="May">May</option>
+												<option value="Jun">Jun</option>
+												<option value="Jul">Jul</option>
+												<option value="Aug">Aug </option>
+												<option value="Sep">Sep</option>
+												<option value="Oct">Oct </option>
+												<option value="Nov">Nov </option>
+												<option value="Dec">Dec</option>
+											</select>
+										</div>
+								</div>
+								<div class="col-md-4 inputGroupContainer">
+										<div class="input-group">
+											<span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+											<select name="yearsInIbm" id="team" ng-model="employee.monthsinibm" required="required" style="width:12em;" class="form-control selectpicker" >
+												<option value="Jan">2017 </option>
+												<option value="Feb">2016 </option>
+												<option value="Mar">2015</option>
+												<option value="Apr">2014</option>
+												<option value="May">2013</option>
+												<option value="Jun">2012</option>
+												<option value="Jul">2011</option>
+											</select>
+										</div>
+								</div>
+							</div>					
+
+							<div class="hvr-grow">
+								<a href="#" id="facebook" class="hvr-grow" ><img src='images/facebook.jpg'/></a>
+								<input  name="facebook" style="width: 25em; margin-left: 9.2em;margin-top: -3em;" ng-model="employee.facebook" placeholder="Facebook link" class="form-control"  type="text" />
+							</div>
+							<div class="hvr-grow">
+								<a href="#" id="twitter" class="hvr-grow"><img src='images/twitter.png'/></a>
+								<input  name="twitter" style="width: 25em; margin-left: 50em;margin-top: -4.7em;" ng-model="employee.twitter" placeholder="Twitter link" class="form-control"  type="text" />
+							</div>
+							<div class="hvr-grow">
+								<a href="#" id="linkedin" class="hvr-grow"><img src='images/linkedin.jpg'/></a>
+								<input  name="linkedin" style="width: 25em; margin-left: 9em;margin-top: -3em;" ng-model="employee.linkedin" placeholder="Linkedin link" class="form-control"  type="text" />
+							</div>
+							<div class="hvr-grow">
+								<a href="#" id="instagram" class="hvr-grow"><img src='images/instagram.png'/></a>
+								<input  name="instagram" style="width: 25em; margin-left: 16em;margin-top: -3em;" ng-model="employee.instagram" placeholder="Instagram link" class="form-control"  type="text" />
+							</div>
+
+							<!-- Image upload -->
+							<div class="form-group hvr-grow photos">
+								<label class="col-md-4 control-label">Photos</label>  
+									<div class="col-md-4 inputGroupContainer">
+										<div class="input-group">
+										<input name="file" ng-model="employee.profilephoto" name="profilephoto" type="file">
+									</div>
+								</div>
+							</div>
+
+							<!-- Button -->
+							<div class="form-group">
+								<label class="col-md-4 control-label"></label>
+								<div class="col-md-4">
+									<button type="submit" id="submit-button" class="btn btn-warning" >Submit <span class="glyphicon glyphicon-send"></span></button>
+								</div>					
+							</div>	
 </div>
-
-<form role="form" ng-submit="createEmployee()" ng-controller="EmployeeNewCtrl">
-	<div class="form-group">
-		<label for="firstName">First Name</label>
-		<input type="text" ng-model="employee.firstname" class="form-control" id="firstname" placeholder="Enter First Name">
-	</div>
-	<div class="form-group">
-		<label for="LastName">Last Name</label>
-		<input type="text" ng-model="employee.lastname" class="form-control" id="lastname" placeholder="Enter Last Name">
-	</div>
-	<p><hr></p>
-	
-	<div class="row">
-		<div class="col-xs-6">
-			<a href="#/polls" class="btn btn-default" role="button"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
+		</fieldset>
+		</form>
 		</div>
-		<div class="col-xs-6">
-			<button class="btn btn-primary pull-right" type="submit">submit &raquo;</button>
 		</div>
-	</div>
-	
-	<p>&nbsp;</p>
-</form>
+		<!-- /.container -->
+  	
+  </body>
+</html>
 
-
-
-      <div ng-controller="OrgCtrl">
-        <div google-chart chart="chart"/>
-      </div>
-   

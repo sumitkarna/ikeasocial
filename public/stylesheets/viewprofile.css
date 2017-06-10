@@ -1,0 +1,133 @@
+
+    body {
+        background-image: url("background-design-1.jpg");
+        color:  #080804;
+    }
+    .well{
+        background-color: #7CC2F8;
+        border: none;
+    }
+  
+/* Grow */
+    .hvr-grow {
+            display: inline-block;
+            vertical-align: middle;
+            transform: translateZ(0);
+            box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+            backface-visibility: hidden;
+            -moz-osx-font-smoothing: grayscale;
+            transition-duration: 0.3s;
+            transition-property: transform;
+    }
+
+
+    .hvr-grow:hover,
+    .hvr-grow:focus,
+    .hvr-grow:active {
+            transform: scale(1.1);
+    }
+    #name_display{
+    float: left;
+    font-size: 4em;
+    height: auto;
+    margin-left: 2.7em;
+    }
+    .circle {
+    background: transparent none repeat scroll 0 0;
+    border: 2px solid #000;
+    border-radius: 50%;
+    color: #fff;
+    height: 13em;
+    margin-top: -9.5em;
+    text-align: center;
+    width: 210px;
+     }
+     .horizontal_dotted_line{
+         border:none;
+        border-top:4px dotted #000;
+        color:#fff;
+        margin-top: 2em;
+        height:1px;
+        width:100%;
+     } 
+     #role{
+        float: left;
+        font-size: 3em;
+        margin-left: 5.5em;
+        margin-top: -1em;
+        text-transform: uppercase;
+     }
+     #ibmerfor{
+    font-family: Trebuchet MS;
+    font-size: 2em;
+    margin-left: 1em;
+    margin-top: 1em;
+     }
+     #yearsinibm{
+    font-family:  Trebuchet MS;
+    font-size: 4em;
+    margin-left: 0.5em;
+     }
+     #inikea{
+    font-family: Trebuchet MS;
+    font-size: 2em;
+    margin-left: 12.4em;
+    margin-top: -4.4em;
+         }
+     #yearsinikea{
+         font-family: Trebuchet MS;
+        font-size: 4em;
+        margin-left: 6em;
+     }
+
+     #location{
+         font-family:  Trebuchet MS;
+    font-size: 2em;
+    margin-left: 27em;
+    margin-top: -4.3em;
+     }
+     #place{
+         font-family:  Trebuchet MS;
+    font-size: 4em;
+    margin-left: 11.4em;
+     }
+
+    #contact_form{
+    background: #c2e3f2; /* For browsers that do not support gradients */    
+    background: -webkit-linear-gradient(left, #7CC2F8 , #ffffff); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right,#7CC2F8, #ffffff); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, #7CC2F8, #ffffff); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, #7CC2F8, #ffffff); /* Standard syntax (must be last) */
+
+    }
+    #submit-button{
+         background-color: #115890;
+         border-color: #115890;
+         margin-left: 37em; 
+         margin-top: 7em;
+    }
+    #head-title{
+        color: #000000;
+    }
+    .margin-1{
+        margin-left:1em;
+    }
+    .photos{
+        margin-top: 3em;
+        float: right;
+        margin-right: 27em !important;
+    }
+    .birthday{
+        margin-left:1.5em;
+    }
+    .yearsinibm{
+        margin-left:1em;
+    }
+    .yearsikeadiv{
+        margin-right:2em;
+        margin-left:-1em;
+    }
+    .anniversary{
+        margin-right:2em;
+        margin-left:-1.2em;
+    }

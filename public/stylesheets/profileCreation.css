@@ -1,0 +1,106 @@
+    a {
+                display:inline-block;
+        }
+        a img {
+                display:block;
+                height: 3em;
+        }
+    
+    #facebook {
+            margin-left: 2em;
+            margin-top: 2em;
+    }
+    #twitter{
+            margin-left: 44em;
+            margin-top: -5em;
+    }
+    #linkedin{
+            margin-left: 3em;
+            margin-top: 1em;
+    }
+    #instagram{
+            margin-left: 10em;
+            margin-top: 1em;
+    }
+    body {
+        background-image: url("background-design-1.jpg");
+        color:  #080804;
+    }
+    .well{
+        background-color: #7CC2F8;
+        border: none;
+    }
+  
+/* Grow */
+    .hvr-grow {
+            display: inline-block;
+            vertical-align: middle;
+            transform: translateZ(0);
+            box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+            backface-visibility: hidden;
+            -moz-osx-font-smoothing: grayscale;
+            transition-duration: 0.3s;
+            transition-property: transform;
+    }
+
+
+    .hvr-grow:hover,
+    .hvr-grow:focus,
+    .hvr-grow:active {
+            transform: scale(1.1);
+    }
+    textarea {
+        width: 10em;
+        height: 10em;						
+    }
+    .width{
+        width:6em;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+    }
+    .height{
+        height:4em;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+    }
+    #contact_form{
+    background: #c2e3f2; /* For browsers that do not support gradients */    
+    background: -webkit-linear-gradient(left, #7CC2F8 , #ffffff); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right,#7CC2F8, #ffffff); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, #7CC2F8, #ffffff); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, #7CC2F8, #ffffff); /* Standard syntax (must be last) */
+
+    }
+    #submit-button{
+         background-color: #115890;
+         border-color: #115890;
+         margin-left: 37em; 
+         margin-top: 7em;
+    }
+    #head-title{
+        color: #000000;
+    }
+    .margin-1{
+        margin-left:1em;
+    }
+    .photos{
+        margin-top: 3em;
+        float: right;
+        margin-right: 27em !important;
+    }
+    .birthday{
+        margin-left:1.5em;
+    }
+    .yearsinibm{
+        margin-left:1em;
+    }
+    .yearsikeadiv{
+        margin-right:2em;
+        margin-left:-1em;
+    }
+    .anniversary{
+        margin-right:2em;
+        margin-left:-1.2em;
+    }

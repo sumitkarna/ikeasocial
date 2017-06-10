@@ -2,22 +2,17 @@
 var mongoose = require('mongoose');
 var db;
 var cfenv = require('cfenv');
-var appEnv = cfenv.getAppEnv();
-
-var services = appEnv.services;
+var appenv = cfenv.getAppEnv();
 
 if (process.env.VCAP_SERVICES) { 
 
 var mongoDbUrl, mongoDbOptions = {};
-var mongodb_services = services["compose-for-mongodb"];
-
-var credentials = mongodb_services[0].credentials;
-
-var ca = [new Buffer(credentials.ca_certificate_base64, 'base64')];
-mongoDbUrl = credentials.uri;
+var mongoDbCredentials = appEnv.getServiceCreds("compose-for-mongodb").credentials;
+var ca = [new Buffer(mongoDbCredentials.ca_certificate_base64, 'base64')];
+mongoDbUrl = mongoDbCredentials.uri;
 mongoDbOptions = {
-  mongos: {
-    ssl: true,
+mongos: {
+  ssl: true,
     sslValidate: true,
     sslCA: ca,
     poolSize: 1,

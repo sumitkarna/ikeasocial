@@ -1,0 +1,98 @@
+
+<div ng-init="init()">
+<div class="page-header">
+	<h1>View Employee Detail</h1>
+</div>
+ 
+
+ <ion-view view-title="Auth0 Ionic Quickstart" ng-controller="EmployeeDetailController as vm">
+  <ion-content class="padding">
+    <div ng-hide="isAuthenticated">
+      <p>Welcome to IKEA Social!! Please log in:</p>
+      <button class="button button-full button-positive" ng-click="vm.login()">
+        Log In
+      </button>
+    </div>
+
+<div ng-show="isAuthenticated">
+<div class="container">
+    <div class="row clearfix well">
+		<div class="item item-avatar">
+          <img src="{{ vm.profile.picture }}">
+          <h2>{{ vm.employee.name }}</h2>
+        </div>
+		<div class="col-md-8 column">
+			<blockquote>
+				<p>
+					
+				</p> <small>{{vm.employee.role}}/ {{vm.employee.team}} <cite>{{vm.employee.location}}</cite></small>
+			</blockquote>
+		</div>
+		</div>
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div class="tabbable" id="tabs-444468">
+				<ul class="nav nav-tabs">
+					<li class="active">
+						<a href="#panel-200304" data-toggle="tab">About</a>
+					</li>
+					<li>
+						<a href="#panel-567649" data-toggle="tab">Photos</a>
+					</li>
+				</ul>
+				<div class="tab-content">
+					<div class="tab-pane active" id="panel-200304">
+						 <div class="row clearfix">
+                			<div class="col-md-8 column">
+            					<p>
+            						<strong>About me</strong><br/>
+                                    {{vm.employee.aboutme}}
+            					</p>
+                                <hr/>
+                                <p>
+                					<strong>Biggest Mistake</strong><br/>
+                                    {{vm.employee.biggestMistake}}
+            					</p>
+                                <hr/>
+                                <p>
+                    				<strong>Watch out for</strong><br/>
+                                    {{vm.employee.watchoutfor}}
+            					</p>
+                                <hr/>
+                                <p>
+                        			<strong>Fun Fact</strong><br/>
+                                    {{vm.employee.funfact}}
+            					</p>
+                                <hr/>
+                                <p>
+                            		<strong>Success Story</strong><br/>
+                                    {{vm.employee.successstory}}
+            					</p>
+                                <hr/>
+                                <p class="well">
+                                <strong>Don't Overlook</strong><br/>
+                                	 {{vm.employee.notoverlook}}
+            					</p>
+            				</div>
+            				
+					<div class="tab-pane" id="panel-567649">
+						                 <div class="row clearfix">
+    	<div class="col-md-8 column">
+			<img alt="140x140" src="http://lorempixel.com/140/140/" /><img alt="140x140" src="http://lorempixel.com/140/140/" /><img alt="140x140" src="http://lorempixel.com/140/140/" /><img alt="140x140" src="http://lorempixel.com/140/140/" />
+		</div>
+		<div class="col-md-4 column">
+			<p>
+				facebook Instagram Twitter Linkedin
+			</p>
+		</div>
+	</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+</div>
+</ion-content>
+</ion-view>

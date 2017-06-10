@@ -1,4 +1,3 @@
-// Connect to MongoDB using Mongoose
 var db = require( './dbservice.js').db;
 
 
@@ -6,6 +5,9 @@ var db = require( './dbservice.js').db;
 var EmployeeSchema = require('../models/IkeasocialSchema.js').EmployeeSchema;
 var Employee = db.model('employees', EmployeeSchema);
 
+// Get Employee schema and model
+var PhotoSchema = require('../models/IkeasocialSchema.js').PhotoSchema;
+var Photo = db.model('Photos', PhotoSchema);
 
 // Main application view
 exports.index = function(req, res) {
@@ -25,13 +27,46 @@ exports.list = function(req, res) {
 exports.employee = function(req, res) {
 	
 	// Employee ID comes in the URL
-	var employeeId = req.params.id;
+	var userid = req.params.id;
 	
 	// Find the poll by its ID, use lean as we won't be changing it
-	Employee.findById(employeeId, '', { lean: true }, function(err, employee) {
-			res.json(employee);
+	Employee.find({emailaddr:req.params.id}, function(error, employeeItem) {
+			if(employeeItem.length){
+			res.json({noRecords: false});
+		}else {
+			res.json({noRecords: true});
+			
+			}
 	});
 };
+// JSON API for getting a single Employee Detail
+exports.employeeDetail = function(req, res) {
+	
+	// Employee ID comes in the URL
+	var userid = req.params.id;
+	
+	// Find the poll by its ID, use lean as we won't be changing it
+	Employee.find({emailaddr:req.params.id}, function(error, employeeItem) {
+			if(employeeItem.length){
+			res.json(employeeItem[0]);
+		}else {
+			res.json({noRecords: true});
+			
+			}
+	});
+};
+
+exports.memberSince= function(req,res){
+	var yearOfJoining= req.params.yearswithibm.year;
+	var monthOfJoining= req.params.yearswithibm.month;
+	var today = new Date();
+	var memberSince= today.getFullYear() - yearOfJoining + 'years' + today.getMonth()- monthOfJoining + 'months';
+
+	res.json(memberSince);
+
+
+}
+
 
 // JSON API for creating a new employee
 exports.create = function(req, res) {
@@ -45,8 +80,6 @@ exports.create = function(req, res) {
 				emailaddr:reqBody.emailaddr,
 				team:reqBody.team,
 				phone:reqBody.phone,
-				//need chage to incorporate pics
-				profilephoto:reqBody.profilephoto,
 				aboutme:reqBody.aboutme,
 				biggestmistake:reqBody.biggestmistake,
 				successtory:reqBody.successtory,
@@ -58,6 +91,11 @@ exports.create = function(req, res) {
 				twitterlink: reqBody.twitterlink,
 				instagramlink:  reqBody.instagramlink
 		};
+
+		photobj={
+			emailaddr:reqBody.emailaddr,
+			profilephoto:reqBody.profilephoto
+		}
 				
 	// Create employee model from built up employee object
 	var employeee = new Employee(employeeeObj);
@@ -65,10 +103,21 @@ exports.create = function(req, res) {
 	// Save employee to DB
 	employeee.save(function(err, doc) {
 		if(err || !doc) {
+			throw err;
+		} else {
+			res.json(doc);
+		}		
+	});
+	
+	var photo=new Photo(photobj)
+	
+
+	// Save photo to DB
+	photo.save(function(err, doc) {
+		if(err || !doc) {
 			throw 'Error';
 		} else {
 			res.json(doc);
 		}		
 	});
 };
-
