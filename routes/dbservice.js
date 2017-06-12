@@ -20,7 +20,7 @@ mongos: {
   }
 };
 console.log("Connecting to", mongoDbUrl);
-db= mongoose.connect(mongoDbUrl, mongoDbOptions);
+db = mongoose.connect('mongodb://sumit:Passw0rd@ds129610.mlab.com:29610/ikeasocial');
 } else {
    db = mongoose.createConnection('localhost', 'ikeasocialapp');
 }
