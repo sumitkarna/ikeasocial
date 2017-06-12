@@ -1,5 +1,16 @@
+<! DOCTYPE html>
+<html>
+    <head>
+        <title>Login to Ikea Social</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all">
+        <link rel="stylesheet" href="stylesheets/loginpage.css">  
+    </head>
+
 
                 <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
+    <section class="container">
+    <div class="login">
       <h2> Login</h2>
        <form name="form" ng-submit="vm.login()" role="form">
         <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && (form.username.$error.required  || form.username.$error.pattern)}">
@@ -19,4 +30,6 @@
             <a href="#/register" class="btn btn-link">Register</a>
         </div>
     </form>
+    </div>
+    </section>
 </div>
