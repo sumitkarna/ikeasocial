@@ -55,19 +55,6 @@ exports.employeeDetail = function(req, res) {
 			}
 	});
 };
-
-exports.memberSince= function(req,res){
-	var yearOfJoining= req.params.yearswithibm.year;
-	var monthOfJoining= req.params.yearswithibm.month;
-	var today = new Date();
-	var memberSince= today.getFullYear() - yearOfJoining + 'years' + today.getMonth()- monthOfJoining + 'months';
-
-	res.json(memberSince);
-
-
-}
-
-
 // JSON API for creating a new employee
 exports.create = function(req, res) {
 
@@ -92,10 +79,10 @@ exports.create = function(req, res) {
 				instagramlink:  reqBody.instagramlink
 		};
 
-		photobj={
+		/*photobj={
 			emailaddr:reqBody.emailaddr,
 			profilephoto:reqBody.profilephoto
-		}
+		}*/
 				
 	// Create employee model from built up employee object
 	var employeee = new Employee(employeeeObj);
@@ -105,19 +92,21 @@ exports.create = function(req, res) {
 		if(err || !doc) {
 			throw err;
 		} else {
-			res.json(doc);
+			var r = doc.toJSON()
+			r.success = true;
+			res.json(r);
 		}		
 	});
 	
-	var photo=new Photo(photobj)
+	//var photo=new Photo(photobj)
 	
 
 	// Save photo to DB
-	photo.save(function(err, doc) {
+	/*photo.save(function(err, doc) {
 		if(err || !doc) {
 			throw 'Error';
 		} else {
 			res.json(doc);
 		}		
-	});
+	});*/
 };

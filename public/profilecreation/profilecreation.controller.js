@@ -17,9 +17,8 @@ ProfileCratioinController.$inject = ['EmployeeService', '$location', '$rootScope
             vm.dataLoading = true;
             EmployeeService.Create(vm.employee)
                 .then(function (response) {
-                    if (response.success) {
-                        FlashService.Success('Employee creation successful', true);
-                        $location.path('/login');
+                    if (response.data.success) {
+                        $location.path('/employee/'+vm.emailaddr);
                     } else {
                         FlashService.Error(response.message);
                         vm.dataLoading = false;
@@ -27,6 +26,5 @@ ProfileCratioinController.$inject = ['EmployeeService', '$location', '$rootScope
                 });
         }
     }
-
 
 

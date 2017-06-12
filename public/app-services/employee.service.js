@@ -50,7 +50,7 @@ function GetEmployeeDetailsById(id) {
 
         function handleSuccess(res) {
            // alert("I am here");
-            return res.data;
+            return res;
         }
 
         function handleError(error) {

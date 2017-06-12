@@ -1,96 +1,70 @@
-
-<div class="page-header">
-	<h1>View Employee Detail</h1>
-</div>
- 
-
- <ion-view view-title="Auth0 Ionic Quickstart" ng-controller="EmployeeDetailController as vm">
-  <ion-content class="padding">
-    <div ng-hide="isAuthenticated">
-      <p>Welcome to IKEA Social!! Please log in:</p>
-      <button class="button button-full button-positive" ng-click="vm.login()">
-        Log In
-      </button>
-    </div>
-
-<div ng-show="isAuthenticated">
-<div class="container">
-    <div class="row clearfix well">
-		<div class="item item-avatar">
-          <img src="{{ vm.profile.picture }}">
-          <h2>{{ vm.employee.name }}</h2>
+<! DOCTYPE html>
+<html>
+    <head>
+        <title>View Profile</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all">
+		<link rel="stylesheet" href="stylesheets/viewprofile.css">	
+    </head>
+    <body>
+        <div ng-init="init()">		
+					<form class="well form-horizontal" role="form" id="contact_form">
+                        <fieldset>
+                            <div class="circle"></div>
+                        	<legend><b><span id="name_display"> {{employee.name}} </span></b></legend>
+                            <div id="role"> <b>{{employee.role}}</b></div>
+                            <div class="horizontal_dotted_line"></div>
+							<div id="teamtitle"> <b> Team</b></div>
+                            <div id="team"><b>{{employee.team}}</b></div>
+                            <div id="location"> <b> Location</b></div>
+                            <div id="place"><b>{{employee.basedin}}</b></div>
+                            <div class="horizontal_dotted_line"></div>
+							<div id="aboutme"><b>About Me</b></div>
+							<div id="aboutmetext"><b>{{employee.aboutme}}</b></div>
+							<div class="horizontal_dotted_line"></div>
+							<div id="aboutme"><b>Biggest Mistake</b></div>
+							<div id="aboutmetext"><b>{{employee.biggestmistake}}</b></div>
+							<div class="horizontal_dotted_line"></div>
+							<div id="aboutme"><b>Success Story</b></div>
+							<div id="aboutmetext"><b>{{employee.successtory}}</b></div>
+							<div class="horizontal_dotted_line"></div>
+							<div id="aboutme"><b>Fun Fact</b></div>
+							<div id="aboutmetext"><b>{{employee.funfact}}</b></div>
+							<div class="horizontal_dotted_line"></div>
+							<div id="aboutme"><b>Watch out for</b></div>
+							<div id="aboutmetext"><b>{{employee.watchoutfor}}</b></div>
+							<div class="horizontal_dotted_line"></div>
+							<div id="aboutme"><b>Not to overlook</b></div>
+							<div id="aboutmetext"><b>{{employee.notoverlook}}</b></div>
+							<div class="horizontal_dotted_line"></div>
+							<div id="years">
+							<div id="ibmerfor" class="circleforyears"><span id="ibmer"> <b> An IBMer for</b></span>
+							<div id="yearsinibm"><b>{{employee.yearsinibm}}</b>years</div></div>
+                            <div id="inikea" class="circleforyears"> <b> In IKEA for</b>
+                            <div id="yearsinikea"><b>{{employee.yearsinikea}}</b>years</div></div>
+							<div id="birthday" class="circleforyears">Birthday
+							<div id="birthdate"><b>{{employee.birthday}}</b>years</div></div></div>
+							<div id="anniversary" class="circleforyears">Anniversary
+							<div id="anniversaryDate"><b>{{employee.anniversary}}</b>years</div></div>
+							<div class="horizontal_dotted_line"></div>
+							<div id="facebooklink">Facebook Link</div>
+							<div>{{employee.facebooklink}}</div>							
+							<div class="horizontal_dotted_line"></div>
+							<div id="facebooklink">Twitter Link</div>
+							<div>{{employee.twitterlink}}</div>							
+							<div class="horizontal_dotted_line"></div>
+							<div id="facebooklink">Instagram Link</div>
+							<div>{{employee.instagramlink}}</div>							
+							<div class="horizontal_dotted_line"></div>
+							<div id="facebooklink">Linkedin Link</div>
+							<div>{{employee.linkedinlink}}</div>
+							<div class="horizontal_dotted_line"></div>
+							</div>
+							</div>
+                        </fieldset>
+            		</form>
         </div>
-		<div class="col-md-8 column">
-			<blockquote>
-				<p>					
-				</p> <small>{{vm.employee.role}}/ {{vm.employee.team}} <cite>{{vm.employee.location}}</cite></small>
-			</blockquote>
-		</div>
-		</div>
-	<div class="row clearfix">
-		<div class="col-md-12 column">
-			<div class="tabbable" id="tabs-444468">
-				<ul class="nav nav-tabs">
-					<li class="active">
-						<a href="#panel-200304" data-toggle="tab">About</a>
-					</li>
-					<li>
-						<a href="#panel-567649" data-toggle="tab">Photos</a>
-					</li>
-				</ul>
-				<div class="tab-content">
-					<div class="tab-pane active" id="panel-200304">
-						 <div class="row clearfix">
-                			<div class="col-md-8 column">
-            					<p>
-            						<strong>About me</strong><br/>
-                                    {{vm.employee.aboutme}}
-            					</p>
-                                <hr/>
-                                <p>
-                					<strong>Biggest Mistake</strong><br/>
-                                    {{vm.employee.biggestMistake}}
-            					</p>
-                                <hr/>
-                                <p>
-                    				<strong>Watch out for</strong><br/>
-                                    {{vm.employee.watchoutfor}}
-            					</p>
-                                <hr/>
-                                <p>
-                        			<strong>Fun Fact</strong><br/>
-                                    {{vm.employee.funfact}}
-            					</p>
-                                <hr/>
-                                <p>
-                            		<strong>Success Story</strong><br/>
-                                    {{vm.employee.successstory}}
-            					</p>
-                                <hr/>
-                                <p class="well">
-                                <strong>Don't Overlook</strong><br/>
-                                	 {{vm.employee.notoverlook}}
-            					</p>
-            				</div>
-            				
-					<div class="tab-pane" id="panel-567649">
-						                 <div class="row clearfix">
-    	<div class="col-md-8 column">
-			<img alt="140x140" src="http://lorempixel.com/140/140/" /><img alt="140x140" src="http://lorempixel.com/140/140/" /><img alt="140x140" src="http://lorempixel.com/140/140/" /><img alt="140x140" src="http://lorempixel.com/140/140/" />
-		</div>
-		<div class="col-md-4 column">
-			<p>
-				facebook Instagram Twitter Linkedin
-			</p>
-		</div>
-	</div>
-					</div>
-				</div>
-			</div>
-			
-		</div>
-	</div>
-</div>
-</div>
-</ion-content>
-</ion-view>
+    </body>
+</html>
+<script >
+	</script>

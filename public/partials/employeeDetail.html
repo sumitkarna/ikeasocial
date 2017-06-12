@@ -1,21 +1,70 @@
-<div class="page-header">
-	<h1>View Employee Detail</h1>
-</div>
-<div class="well well-lg">
-	<strong>Name</strong><br>{{employee.name}}
-</div>
-<div class="well well-lg">
-	<strong>Team</strong><br>{{employee.team}}
-</div>
-<div class="well well-lg">
-	<strong>Email Address</strong><br>{{employee.emailaddr}}
-</div>
-<div class="well well-lg">
-	<strong>Role</strong><br>{{employee.role}}
-</div>
-<div class="well well-lg">
-	<strong>Based In</strong><br>{{employee.basedin}}
-</div>
-
-
-<p>&nbsp;</p>
+<! DOCTYPE html>
+<html>
+    <head>
+        <title>View Profile</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all">
+		<link rel="stylesheet" href="stylesheets/viewprofile.css">	
+    </head>
+    <body>
+        <div ng-init="init()">		
+					<form class="well form-horizontal" role="form" id="contact_form">
+                        <fieldset>
+                            <div class="circle"></div>
+                        	<legend><b><span id="name_display"> {{employee.name}} </span></b></legend>
+                            <div id="role"> <b>{{employee.role}}</b></div>
+                            <div class="horizontal_dotted_line"></div>
+							<div id="teamtitle"> <b> Team</b></div>
+                            <div id="team"><b>{{employee.team}}</b></div>
+                            <div id="location"> <b> Location</b></div>
+                            <div id="place"><b>{{employee.basedin}}</b></div>
+                            <div class="horizontal_dotted_line"></div>
+							<div id="aboutme"><b>About Me</b></div>
+							<div id="aboutmetext"><b>{{employee.aboutme}}</b></div>
+							<div class="horizontal_dotted_line"></div>
+							<div id="aboutme"><b>Biggest Mistake</b></div>
+							<div id="aboutmetext"><b>{{employee.biggestmistake}}</b></div>
+							<div class="horizontal_dotted_line"></div>
+							<div id="aboutme"><b>Success Story</b></div>
+							<div id="aboutmetext"><b>{{employee.successtory}}</b></div>
+							<div class="horizontal_dotted_line"></div>
+							<div id="aboutme"><b>Fun Fact</b></div>
+							<div id="aboutmetext"><b>{{employee.funfact}}</b></div>
+							<div class="horizontal_dotted_line"></div>
+							<div id="aboutme"><b>Watch out for</b></div>
+							<div id="aboutmetext"><b>{{employee.watchoutfor}}</b></div>
+							<div class="horizontal_dotted_line"></div>
+							<div id="aboutme"><b>Not to overlook</b></div>
+							<div id="aboutmetext"><b>{{employee.notoverlook}}</b></div>
+							<div class="horizontal_dotted_line"></div>
+							<div id="years">
+							<div id="ibmerfor" class="circleforyears"><span id="ibmer"> <b> An IBMer for</b></span>
+							<div id="yearsinibm"><b>{{employee.yearsinibm}}</b>years</div></div>
+                            <div id="inikea" class="circleforyears"> <b> In IKEA for</b>
+                            <div id="yearsinikea"><b>{{employee.yearsinikea}}</b>years</div></div>
+							<div id="birthday" class="circleforyears">Birthday
+							<div id="birthdate"><b>{{employee.birthday}}</b>years</div></div></div>
+							<div id="anniversary" class="circleforyears">Anniversary
+							<div id="anniversaryDate"><b>{{employee.anniversary}}</b>years</div></div>
+							<div class="horizontal_dotted_line"></div>
+							<div id="facebooklink">Facebook Link</div>
+							<div>{{employee.facebooklink}}</div>							
+							<div class="horizontal_dotted_line"></div>
+							<div id="facebooklink">Twitter Link</div>
+							<div>{{employee.twitterlink}}</div>							
+							<div class="horizontal_dotted_line"></div>
+							<div id="facebooklink">Instagram Link</div>
+							<div>{{employee.instagramlink}}</div>							
+							<div class="horizontal_dotted_line"></div>
+							<div id="facebooklink">Linkedin Link</div>
+							<div>{{employee.linkedinlink}}</div>
+							<div class="horizontal_dotted_line"></div>
+							</div>
+							</div>
+                        </fieldset>
+            		</form>
+        </div>
+    </body>
+</html>
+<script >
+	</script>

@@ -18,7 +18,28 @@ EmployeeDetailController.$inject = ['EmployeeService', '$location', '$rootScope'
             vm.dataLoading = true;
             EmployeeService.GetEmployeeDetailsById($rootScope.globals.currentUser.username)
                 .then(function (response) {
-                    $scope.employee=response;
+                    $scope.employee={
+                        name : response.data.name,
+                        team : response.data.team,
+                        emailaddr : response.data.emailaddr,
+                        role: response.data.role,
+                        basedin: response.data.basedin,
+                        yearswithibm: response.data.yearswithibm,
+                        yearswithikea: response.data.yearswithikea,
+                        phone: response.data.phone,
+                        aboutme: response.data.aboutme,
+                        notoverlook: response.data.notoverlook,
+                        biggestmistake: response.data.biggestmistake,
+                        successtory: response.data.successtory,
+                        funfact:response.data.funfact,
+                        watchoutfor: response.data.watchoutfor,
+                        birthday: response.data.birthday,
+                        anniversary: response.data.anniversary,
+                        facebooklink: response.data.facebooklink,
+                        instagramlink: response.data.instagramlink,
+                        twitterlink: response.data.twitterlink,
+                        linkedinlink: response.data.linkedinlink
+                    };
                     if (response.success) {
                         FlashService.Success('Employee detail successful', true);
                     } else {
