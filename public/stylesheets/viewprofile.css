@@ -64,11 +64,12 @@
         text-transform: uppercase;
      }
      #ibmerfor{
+     color: #cccccc;
     font-family: Trebuchet MS;
-    font-size: 1em;
-    margin-left: 3em;
+    font-size: 1.4em;
+    margin-left: 13em;
     margin-top: 3em;
-    color: #000;
+    padding-top: 2em;
      }
    .circleforyears {
     background: transparent none repeat scroll 0 0;
@@ -110,60 +111,115 @@
          margin-top: -1em;
      }
      #yearsinibm{
-    font-family:  Trebuchet MS;
-    font-size: 4em;
-    color: #000;
-    margin-left: 0.5em;
+    color: #cccccc;
+    font-family: Trebuchet MS;
+    font-size: 2em;
+    margin-left: 0.2em;
+     }
+     #twitter{
+
+     }
+     #socialMediaLinks{
+        margin-bottom: -3.5em;
+        margin-left: 13em;
+        margin-top: 3em;
+     }
+     #twitterimage{
+        margin-left: 14em;
+        margin-top: -7.5em;
+        width: 9%;
+     }
+     #fbimage{
+       width: 9%;
+     }
+     #linkedinimage{
+        margin-left: 38em;
+        margin-top: -13.5em;
+        width: 8%;
+     }
+     #instagramimage{
+        margin-top: -10.5em;
+        margin-left: 26em;
+        width: 8%;
      }
      #inikea{
+      color:navy;
     font-family: Trebuchet MS;
-    font-size: 1em;
-    color: #000;
-    margin-left: 24.4em;
+    font-size: 1.5em;
+    margin-left: 29.4em;
     margin-top: -13em;
+    padding-top: 2em;
     }         
      #yearsinikea{
          font-family: Trebuchet MS;
-        font-size: 4em;
+        font-size: 2em;
         margin-left: 0em;
-        color: #000;
+        color:navy;
      }
+     .sphere {
+        height: 200px;
+        width: 200px;
+        border-radius: 50%;
+        text-align: center;
+        vertical-align: middle;
+        font-size: 500%;
+        position: relative;
+        box-shadow: inset -10px -10px 100px #000, 10px 10px 20px black, inset 0px 0px 10px black;
+        display: inline-block;
+        margin: 5%;
+    }
+.blue {
+  background-color: blue;
+}
+.yellow {
+  background-color: yellow;
+}
+.sphere::after {
+    background-color: rgba(255, 255, 255, 0.3);
+    content: '';
+    height: 45%;
+    width: 12%;
+    position: absolute;
+    top: 4%;
+    left: 15%;
+    border-radius: 50%;
+    transform: rotate(40deg);
+}
      #team{
-         font-family: Trebuchet MS;
+        font-family: Trebuchet MS;
         font-size: 4em;
         margin-left: 0.5em;
      }
      #teamtitle{
-         font-family: Trebuchet MS;
+        font-family: Trebuchet MS;
         font-size: 2em;
         margin-left: 2em;
      }
      #location{
-         font-family:  Trebuchet MS;
-    font-size: 2em;
-    margin-left: 27em;
-    margin-top: -4.3em;
+        font-family:  Trebuchet MS;
+        font-size: 2em;
+        margin-left: 27em;
+        margin-top: -4.3em;
      }
      #place{
-         font-family:  Trebuchet MS;
-    font-size: 4em;
-    margin-left: 11.4em;
+        font-family:  Trebuchet MS;
+        font-size: 4em;
+        margin-left: 11.4em;
      }
     #facebooklink{
         font-family: Trebuchet MS;
-    font-size: 2em;
-    margin-left: 1em;
-    margin-top: 1em;
-    font-weight: bold;
-    text-transform: uppercase;
+        font-size: 2em;
+        margin-left: 1em;
+        margin-top: 1em;
+        font-weight: bold;
+        text-transform: uppercase;
     }
     #contact_form{
-    background: #c2e3f2; /* For browsers that do not support gradients */    
-    background: -webkit-linear-gradient(left, #7CC2F8 , #ffffff); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(right,#7CC2F8, #ffffff); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(right, #7CC2F8, #ffffff); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(to right, #7CC2F8, #ffffff); /* Standard syntax (must be last) */
-
+        background: #c2e3f2; /* For browsers that do not support gradients */    
+        background: -webkit-linear-gradient(left, #7CC2F8 , #ffffff); /* For Safari 5.1 to 6.0 */
+        background: -o-linear-gradient(right,#7CC2F8, #ffffff); /* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(right, #7CC2F8, #ffffff); /* For Firefox 3.6 to 15 */
+        background: linear-gradient(to right, #7CC2F8, #ffffff); /* Standard syntax (must be last) */
     }
     #submit-button{
          background-color: #115890;
