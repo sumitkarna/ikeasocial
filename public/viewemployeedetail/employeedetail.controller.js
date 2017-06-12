@@ -15,17 +15,22 @@ EmployeeDetailController.$inject = ['EmployeeService', '$location', '$rootScope'
        $scope.init = GetEmployeeById;
 
         function GetEmployeeById() {
+            alert("i m here")
             vm.dataLoading = true;
             EmployeeService.GetEmployeeDetailsById($rootScope.globals.currentUser.username)
                 .then(function (response) {
+                var join_date_ibm=new Date(response.data.joinyearibm + "-" + response.data.joinmonthibm);
+                var join_date_ikea=new Date(response.data.joinyearikea + "-" + response.data.joinmonthikea);
+                var current_date = new Date();
+                var total_months_IBM = (current_date.getFullYear() - join_date_ibm.getFullYear())*12 + (current_date.getMonth() - join_date_ibm.getMonth());
+                var total_months_IKEA = (current_date.getFullYear() - join_date_ikea.getFullYear())*12 + (current_date.getMonth() - join_date_ikea.getMonth());
+                
                     $scope.employee={
                         name : response.data.name,
                         team : response.data.team,
                         emailaddr : response.data.emailaddr,
                         role: response.data.role,
                         basedin: response.data.basedin,
-                        yearswithibm: response.data.yearswithibm,
-                        yearswithikea: response.data.yearswithikea,
                         phone: response.data.phone,
                         aboutme: response.data.aboutme,
                         notoverlook: response.data.notoverlook,
@@ -33,6 +38,8 @@ EmployeeDetailController.$inject = ['EmployeeService', '$location', '$rootScope'
                         successtory: response.data.successtory,
                         funfact:response.data.funfact,
                         watchoutfor: response.data.watchoutfor,
+                        yearsinibm:total_months_IBM,
+                        yearsinikea: total_months_IKEA,
                         birthday: response.data.birthday,
                         anniversary: response.data.anniversary,
                         facebooklink: response.data.facebooklink,
@@ -46,6 +53,10 @@ EmployeeDetailController.$inject = ['EmployeeService', '$location', '$rootScope'
                         FlashService.Error(response.message);
                         vm.dataLoading = false;
                     }
+                   
                 });
         }
+
+         
+
     }
