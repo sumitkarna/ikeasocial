@@ -15,7 +15,6 @@ EmployeeDetailController.$inject = ['EmployeeService', '$location', '$rootScope'
        $scope.init = GetEmployeeById;
 
         function GetEmployeeById() {
-            alert("i m here")
             vm.dataLoading = true;
             EmployeeService.GetEmployeeDetailsById($rootScope.globals.currentUser.username)
                 .then(function (response) {
