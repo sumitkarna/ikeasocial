@@ -72,11 +72,19 @@ exports.create = function(req, res) {
 				successtory:reqBody.successtory,
 				funfact: reqBody.funfact,
 				notoverlook:reqBody.notoverlook,
-				yearswithibm:reqBody.yearswithibm,
-				yearswithikea:reqBody.yearswithikea,
-				linkedinlink: reqBody.linkedinlink,
-				twitterlink: reqBody.twitterlink,
-				instagramlink:  reqBody.instagramlink
+				watchoutfor:reqBody.watchoutfor,
+				joinmonthibm:reqBody.joinmonthibm,
+				joinyearibm:reqBody.joinyearibm,
+				joinmonthikea:reqBody.joinmonthikea,
+				joinyearikea:reqBody.joinyearikea,
+				birthday:reqBody.birthday,
+				birthmonth:reqBody.birthmonth,
+				anniversaryday:reqBody.annieversaryday,
+				anniversarymonth:reqBody.aniversarymonth,
+				facebooklink: reqBody.facebook,
+				linkedinlink: reqBody.linkedin,
+				twitterlink: reqBody.twitter,
+				instagramlink:  reqBody.instagram
 		};
 
 		/*photobj={

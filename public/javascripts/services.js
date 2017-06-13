@@ -1,7 +1,7 @@
 // Angular service module for connecting to JSON APIs
 angular.module('employeeServices', ['ngResource']).
 	factory('Employee', function($resource) {
-		return $resource('employees/:employeeId', {}, {
+		return $resource('view/:employeeId', {}, {
 			// Use this method for getting a list of employees
 			query: { method: 'GET', params: { employeeId: 'employees' }, isArray: true }
 		})

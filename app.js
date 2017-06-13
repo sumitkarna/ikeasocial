@@ -9,7 +9,7 @@ var app = express();
 var server = http.createServer(app);
 var io = require('socket.io').listen(server);
 
-app.set('port', process.env.VCAP_APP_PORT || 8888);
+app.set('port', process.env.VCAP_APP_PORT || 8080);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 app.use(express.favicon());
@@ -31,7 +31,7 @@ app.get('/', routes.index);
 
 // MongoDB API Routes
 app.post('/api/employees', routes.create);
-app.get('/employees/employees', routes.list);
+app.get('/view/employees', routes.list);
 app.get('/api/employees/:id', routes.employee);
 app.post('/api/authenticate', userRoute.authenticate);
 app.get('/api/authenticate', userRoute.authenticate);

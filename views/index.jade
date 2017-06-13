@@ -20,6 +20,7 @@ html(lang='en', ng-app='employees')
 		script(src='/javascripts/angular-google-chart.js')
 		script(src='/home/home.controller.js')
 		script(src='/profilecreation/profilecreation.controller.js')
+		script(src='/employeelist/employeeList.controller.js')
 		script(src='/register/register.controller.js')
 		script(src='/login/login.controller.js')
 		script(src='/viewemployeedetail/employeedetail.controller.js')
@@ -31,6 +32,8 @@ html(lang='en', ng-app='employees')
 	body()
 		nav.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
 			div.navbar-header
-				a.navbar-brand(href='#/employee') Ikea Social
+				a.navbar-brand(href='') Ikea Social
+				a.navbar-brand(href='#/employee') Search
+				
 		div.container
 			div(ng-view)

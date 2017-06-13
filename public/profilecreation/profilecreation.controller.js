@@ -7,9 +7,10 @@ ProfileCratioinController.$inject = ['EmployeeService', '$location', '$rootScope
     function ProfileCratioinController(EmployeeService, $location, $rootScope, FlashService) {
         var vm = this;
 		vm.employee={
-		name: '',role:'',basedin:'',emailaddr:$rootScope.globals.currentUser.username,team:'',phone:'',aboutme:'',biggestmistake:'',
-		successtory:'',funfact:'',watchoutfor:'',notoverlook:'',yearswithibm:'',yearswithikea:'',
-		facebooklink:'',linkedinlink:'',twitterlink:'',instagramlink:''
+		name: '',role:'',basedin:'',emailaddr:$rootScope.globals.currentUser.username,team:'',phone:'',aboutme:'',
+        biggestmistake:'',successtory:'',funfact:'',watchoutfor:'',notoverlook:'',joinmonthibm:'',joinyearibm:'',
+        joinmonthikea:'',joinyearikea:'',birthday:'',birthmonth:'',anniversaryday:'',anniversarymonth:'',
+        facebooklink:'',linkedinlink:'',twitterlink:'',instagramlink:''
 	};
         vm.createEmployee = createEmployee;
 
@@ -26,5 +27,3 @@ ProfileCratioinController.$inject = ['EmployeeService', '$location', '$rootScope
                 });
         }
     }
-
-

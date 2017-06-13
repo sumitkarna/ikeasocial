@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title>Employee Search</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all">
+		<link rel="stylesheet" href="stylesheets/list.css">			
+  </head>
+   <body>
+        <div>		
+<form class="well form-horizontal" role="form" id="search_form">
+<div class="page-header">
+	<h1>List of Employees</h1>
+</div>
+<div class="row">
+	<div class="col-xs-7">
+		<input type="text" class="form-control" ng-model="query" placeholder="Search for an Employee">
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-12"><hr></div>
+</div>
+<b>Employee Name</b>&nbsp;&nbsp;
+
+<div class="row" ng-switch on="vm.allEmployees.data.length">
+	<ul ng-switch-default>
+		
+		<li ng-repeat="employee in vm.allEmployees.data | filter:query">
+	
+			<a href="#/employee/{{employee._id}}">{{employee.name}}</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		</li>
+	</ul>
+</div>
+<p>&nbsp;</p>
+	</form>
+        </div>
+</html>

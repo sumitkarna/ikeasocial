@@ -2,13 +2,10 @@
 angular.module('employees', ['ngCookies','ngRoute','googlechart']).
 	config(['$routeProvider', function($routeProvider) {
 		$routeProvider.
-			when('/employee', { templateUrl: 'partials/list.html', controller: EmployeeListCtrl }).
-			when('/employees', { templateUrl: 'partials/list.html', controller: EmployeeListCtrl }).
+			when('/employee', { templateUrl: 'employeelist/employeeList.html', controller: EmployeeListCtrl , controllerAs: 'vm'}).
 			when('/login', { templateUrl: 'login/login.view.html', controller: LoginController, controllerAs: 'vm'}).
-      when('/new', { templateUrl: 'profilecreation/profilecreation.html', controller: ProfileCratioinController,controllerAs: 'vm'}).
-      when('/register', { templateUrl: 'register/register.view.html', controller: RegisterController, controllerAs: 'vm' }).
-    // when('/home', { templateUrl: 'home/home.view.html', controller: HomeController, controllerAs: 'vm' }).
-    // when('/home', { templateUrl: 'partials/new.html', controller: EmployeeNewCtrl}).
+            when('/new', { templateUrl: 'profilecreation/profilecreation.html', controller: ProfileCratioinController,controllerAs: 'vm'}).
+            when('/register', { templateUrl: 'register/register.view.html', controller: RegisterController, controllerAs: 'vm' }).
 			when('/employee/:employeeId', { templateUrl: 'viewemployeedetail/employeeDetail.html', controller: EmployeeDetailController, controllerAs: 'vm' }).
 
 			// If invalid route, just redirect to the main list view
@@ -20,7 +17,7 @@ angular.module('employees', ['ngCookies','ngRoute','googlechart']).
         link: function($scope, $elm) {
 
           // Instantiate and draw our chart, passing in some options.
- var chart = new google.visualization.OrgChart($elm[0]);
+          var chart = new google.visualization.OrgChart($elm[0]);
           chart.draw($scope.orgChartData);
 		  
         }

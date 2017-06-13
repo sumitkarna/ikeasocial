@@ -20,14 +20,14 @@
         return service;
 
         function GetAll() {
-            return $http.get('/api/employees').then(handleSuccess, handleError('Error getting all users'));
+            return $http.get('/view/employees').then(handleSuccess, handleError('Error getting all users'));
         }
 
         function GetById(id) {
             return $http.get('/api/employees/' + id).then(handleSuccess, handleError('Error getting user by id'));
         }
 
-function GetEmployeeDetailsById(id) {
+       function GetEmployeeDetailsById(id) {
             return $http.get('/api/employeDetails/' + id).then(handleSuccess, handleError('Error getting user by id'));
         }
         function GetByEmployeename(employeename) {

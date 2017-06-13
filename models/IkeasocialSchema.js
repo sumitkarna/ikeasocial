@@ -14,8 +14,14 @@ exports.EmployeeSchema = new mongoose.Schema({
 	funfact:String,
 	watchoutfor:String,
 	notoverlook:String,
-	yearswithibm:String,
-	yearswithikea:String,
+	joinmonthibm:String,
+	joinyearibm:String,
+	joinmonthikea:String,
+	joinyearikea:String,
+	birthday:String,
+	birthmonth:String,
+	anniversaryday:String,
+	anniversarymonth:String,
 	facebooklink:String,
 	linkedinlink:String,
 	twitterlink:String,
@@ -31,5 +37,7 @@ exports.PhotoSchema = new mongoose.Schema({
 	emailaddr: { type: String, required: true },
 	img: { data: Buffer, contentType: String }
 });
+
+
 
 

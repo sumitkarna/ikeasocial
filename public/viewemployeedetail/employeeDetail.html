@@ -1,64 +1,59 @@
-<! DOCTYPE html>
+<!DOCTYPE html>
 <html>
     <head>
         <title>View Profile</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all">
-		<link rel="stylesheet" href="stylesheets/viewprofile.css">	
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all" />
+		<link rel="stylesheet" href="stylesheets/viewprofile.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+		<script type="text/javascript" src="/update.js"></script>
     </head>
     <body>
         <div ng-init="init()">		
 					<form class="well form-horizontal" role="form" id="contact_form">
                         <fieldset>
-                            <div class="circle"></div>
+							<button class="sphere_edit edit_blue" id="edit">Edit</button>
+							<div class="circle"></div>
                         	<legend><b><span id="name_display"> {{employee.name}} </span></b></legend>
-                            <div id="role"> <b>{{employee.role}}</b></div>
+                            <div id="basic-info">
+								<div id="role"> <b>{{employee.role}} <br/> {{employee.team}}</b>, {{employee.basedin}}</div>
+                            </div>
                             <div class="horizontal_dotted_line"></div>
-							<div id="teamtitle"> <b> Team</b></div>
-                            <div id="team"><b>{{employee.team}}</b></div>
-                            <div id="location"> <b> Location</b></div>
-                            <div id="place"><b>{{employee.basedin}}</b></div>
-                            <div class="horizontal_dotted_line"></div>
-							<div id="aboutme"><b>About Me</b></div>
+							<div id="years">
+								<div id="ibmerfor" class="sphere blue"><span id="ibmer"> <b> An IBMer for</b></span>
+								<div id="yearsinibm"><b>{{employee.yearsinibm}}</b>months</div></div>
+								<div id="inikea" class="sphere yellow"> <b> In IKEA for</b>
+								<div id="yearsinikea"><b>{{employee.yearsinikea}}</b>months</div></div>
+							</div>
+							<div class="horizontal_dotted_line"></div>
+							<div id="aboutme">About Me :</div>
 							<div id="aboutmetext"><b>{{employee.aboutme}}</b></div>
 							<div class="horizontal_dotted_line"></div>
-							<div id="aboutme"><b>Biggest Mistake</b></div>
+							<div id="aboutme">Biggest Mistake :</div>
 							<div id="aboutmetext"><b>{{employee.biggestmistake}}</b></div>
 							<div class="horizontal_dotted_line"></div>
-							<div id="aboutme"><b>Success Story</b></div>
+							<div id="aboutme">Success Story :</div>
 							<div id="aboutmetext"><b>{{employee.successtory}}</b></div>
 							<div class="horizontal_dotted_line"></div>
-							<div id="aboutme"><b>Fun Fact</b></div>
+							<div id="aboutme">Fun Fact :</div>
 							<div id="aboutmetext"><b>{{employee.funfact}}</b></div>
 							<div class="horizontal_dotted_line"></div>
-							<div id="aboutme"><b>Watch out for</b></div>
+							<div id="aboutme">Watch out for :</div>
 							<div id="aboutmetext"><b>{{employee.watchoutfor}}</b></div>
 							<div class="horizontal_dotted_line"></div>
-							<div id="aboutme"><b>Not to overlook</b></div>
+							<div id="aboutme">Not to overlook :</div>
 							<div id="aboutmetext"><b>{{employee.notoverlook}}</b></div>
 							<div class="horizontal_dotted_line"></div>
-							<div id="years">
-							<div id="ibmerfor" class="circleforyears"><span id="ibmer"> <b> An IBMer for</b></span>
-							<div id="yearsinibm"><b>{{employee.yearsinibm}}</b>years</div></div>
-                            <div id="inikea" class="circleforyears"> <b> In IKEA for</b>
-                            <div id="yearsinikea"><b>{{employee.yearsinikea}}</b>years</div></div>
-							<div id="birthday" class="circleforyears">Birthday
-							<div id="birthdate"><b>{{employee.birthday}}</b>years</div></div></div>
-							<div id="anniversary" class="circleforyears">Anniversary
-							<div id="anniversaryDate"><b>{{employee.anniversary}}</b>years</div></div>
+							<div id="socialMediaLinks">
+								<div id="socialMedia">Social Media Links :</div>
+								<div id="facebooklink"><a href="{{employee.facebooklink}}"><img id="fbimage" src="/images/facebookLink.png"/></a></div>
+								<div id="twitter"><a href="{{employee.twitterlink}}"><img id="twitterimage" src="/images/twitter.png"/></a></div>
+								<div id="instagramlink"><a href="{{employee.instagramlink}}"><img id="instagramimage" src="/images/instagram.png"/></a></div>
+								<div id="linkedinlink"><a href="{{employee.linkedinlink}}"><img id="linkedinimage" src="/images/linkedinLink.png"/></a></div>
+							</div>
 							<div class="horizontal_dotted_line"></div>
-							<div id="facebooklink">Facebook Link</div>
-							<div>{{employee.facebooklink}}</div>							
-							<div class="horizontal_dotted_line"></div>
-							<div id="facebooklink">Twitter Link</div>
-							<div>{{employee.twitterlink}}</div>							
-							<div class="horizontal_dotted_line"></div>
-							<div id="facebooklink">Instagram Link</div>
-							<div>{{employee.instagramlink}}</div>							
-							<div class="horizontal_dotted_line"></div>
-							<div id="facebooklink">Linkedin Link</div>
-							<div>{{employee.linkedinlink}}</div>
-							<div class="horizontal_dotted_line"></div>
+							
 							</div>
 							</div>
                         </fieldset>
@@ -66,5 +61,11 @@
         </div>
     </body>
 </html>
-<script >
+<script type="text/javascript" >
+	 $( ".container" ).click(function() {
+		$( "div.second" ).replaceWith( "<h2>New heading</h2>" );
+	}
+     $( ".button_class" ).click(function() {
+       $('.class_Of_label_email').replaceWith($('<input>' + $('.class_Of_label_email').innerHTML + '</input>'));
+    });
 	</script>
