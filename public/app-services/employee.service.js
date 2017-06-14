@@ -38,8 +38,8 @@
             return $http.post('/api/employees', employee).then(handleSuccess, handleError('Error creating user'));
         }
 
-        function Update(employee) {
-            return $http.put('/api/employees/' + employee.id, employee).then(handleSuccess, handleError('Error updating user'));
+        function Update(id,employee) {
+            return $http.put('/update/api/employees/' + id +employee).then(handleSuccess, handleError('Error updating user'));
         }
 
         function Delete(id) {

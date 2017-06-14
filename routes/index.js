@@ -55,6 +55,57 @@ exports.employeeDetail = function(req, res) {
 			}
 	});
 };
+
+// JSON API for Updating a new employee
+exports.update = function(req, res) {
+
+	var reqBody = req.body,
+			// Build up employee object to save
+			employeeeObj = {
+				name: reqBody.name, 
+				role:reqBody.role,
+				basedin:reqBody.basedin,
+				emailaddr:reqBody.emailaddr,
+				team:reqBody.team,
+				phone:reqBody.phone,
+				aboutme:reqBody.aboutme,
+				biggestmistake:reqBody.biggestmistake,
+				successtory:reqBody.successtory,
+				funfact: reqBody.funfact,
+				notoverlook:reqBody.notoverlook,
+				watchoutfor:reqBody.watchoutfor,
+				joinmonthibm:reqBody.joinmonthibm,
+				joinyearibm:reqBody.joinyearibm,
+				joinmonthikea:reqBody.joinmonthikea,
+				joinyearikea:reqBody.joinyearikea,
+				birthday:reqBody.birthday,
+				birthmonth:reqBody.birthmonth,
+				anniversaryday:reqBody.annieversaryday,
+				anniversarymonth:reqBody.aniversarymonth,
+				facebooklink: reqBody.facebook,
+				linkedinlink: reqBody.linkedin,
+				twitterlink: reqBody.twitter,
+				instagramlink:  reqBody.instagram
+		};
+
+		
+	// Update employee model from built up employee object
+	var employeee = new Employee(employeeeObj);
+	alert(employeee);
+	// Save employee to DB
+	employeee.save(function(err, doc) {
+		if(err || !doc) {
+			throw err;
+		} else {
+			var r = doc.toJSON()
+			r.success = true;
+			res.json(r);
+		}		
+	});
+	
+	
+};
+
 // JSON API for creating a new employee
 exports.create = function(req, res) {
 
@@ -106,15 +157,5 @@ exports.create = function(req, res) {
 		}		
 	});
 	
-	//var photo=new Photo(photobj)
 	
-
-	// Save photo to DB
-	/*photo.save(function(err, doc) {
-		if(err || !doc) {
-			throw 'Error';
-		} else {
-			res.json(doc);
-		}		
-	});*/
 };
