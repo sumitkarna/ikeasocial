@@ -31,7 +31,7 @@ app.get('/', routes.index);
 
 // MongoDB API Routes
 app.post('/api/employees', routes.create);
-app.post('/api/update/employees/:id', routes.update);
+app.post('/api/update/employees', routes.update);
 app.get('/view/employees', routes.list);
 app.get('/api/employees/:id', routes.employee);
 app.post('/api/authenticate', userRoute.authenticate);

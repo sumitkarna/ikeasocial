@@ -3,8 +3,8 @@ angular.module('employees')
 
 
 // Controller for updating a new employee
-ProfileUpdationController.$inject = ['EmployeeService', '$location', '$rootScope', 'FlashService'];
-    function ProfileUpdationController(EmployeeService, $location, $rootScope, FlashService) {
+ProfileUpdationController.$inject = ['EmployeeService', '$location','$scope', '$rootScope', 'FlashService'];
+    function ProfileUpdationController(EmployeeService, $location, $rootScope, $scope,FlashService) {
         var vm = this;
 		vm.employee={
 		name: '',role:'',basedin:'',emailaddr:$rootScope.globals.currentUser.username,team:'',phone:'',aboutme:'',
@@ -13,12 +13,11 @@ ProfileUpdationController.$inject = ['EmployeeService', '$location', '$rootScope
         facebooklink:'',linkedinlink:'',twitterlink:'',instagramlink:''
 	};
         vm.updateEmployee = updateEmployee;
+        $scope.init = updateEmployee;
 
         function updateEmployee() {
-            alert('Hello');
-            alert(vm.employee);
             vm.dataLoading = true;
-            EmployeeService.Update(vm.employee,vm.employee.id)
+            EmployeeService.Update(vm.employee)
                 .then(function (response) {
                     if (response.data.success) {
                         $location.path('/employee/'+vm.emailaddr);

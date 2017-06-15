@@ -91,19 +91,16 @@ exports.update = function(req, res) {
 		
 	// Update employee model from built up employee object
 	var employeee = new Employee(employeeeObj);
-	alert(employeee);
 	// Save employee to DB
-	employeee.save(function(err, doc) {
-		if(err || !doc) {
-			throw err;
-		} else {
-			var r = doc.toJSON()
-			r.success = true;
-			res.json(r);
-		}		
-	});
-	
-	
+	var query = { emailaddr: reqBody.emailaddr };
+	console.log(query);
+	Employee.findOneAndUpdate(query, employeeeObj, {new: true}, function(err, doc){
+    if(err){
+        console.log("Something wrong when updating data!");
+    }
+
+    console.log(doc);
+});
 };
 
 // JSON API for creating a new employee
