@@ -3,8 +3,8 @@ angular.module('employees')
 
 
 // Controller for creating a new employee
-EmployeeDetailController.$inject = ['EmployeeService', '$location', '$rootScope', '$scope','FlashService'];
-    function EmployeeDetailController(EmployeeService, $location, $rootScope,$scope, FlashService) {
+EmployeeDetailController.$inject = ['EmployeeService', '$location', '$rootScope', '$scope','FlashService','$routeParams'];
+    function EmployeeDetailController(EmployeeService, $location, $rootScope,$scope, FlashService,$routeParams) {
         var vm = this;
 		$scope.employee={
 		name: '',role:'',basedin:'',emailaddr:'',team:'',phone:'',aboutme:'',biggestmistake:'',
@@ -16,7 +16,7 @@ EmployeeDetailController.$inject = ['EmployeeService', '$location', '$rootScope'
 
         function GetEmployeeById() {
             vm.dataLoading = true;
-            EmployeeService.GetEmployeeDetailsById($rootScope.globals.currentUser.username)
+            EmployeeService.GetEmployeeDetailsById($routeParams.employeeId)
                 .then(function (response) {
                 var join_date_ibm=new Date(response.data.joinyearibm + "-" + response.data.joinmonthibm);
                 var join_date_ikea=new Date(response.data.joinyearikea + "-" + response.data.joinmonthikea);

@@ -18,7 +18,7 @@ exports.index = function(req, res) {
 
 exports.list = function(req, res) {
 	// Query Mongo for Employees, just get back the Employee Name
-	Employee.find({}, 'name', function(error, employees) {
+	Employee.find({}, 'name emailaddr', function(error, employees) {
 		res.json(employees);
 	});
 };

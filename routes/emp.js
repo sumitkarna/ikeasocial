@@ -29,7 +29,9 @@ User.find({userid:req.body.username}, {userid: 1}, function(error, users) {
 			// Build up employee object to save
 			userObj = {
 				userid: req.body.username, 
-				password: req.body.password
+				password: req.body.password,
+				firstname:req.body.firstName,
+				lastname:req.body.lastName
 		};
 				
 	// Create employee model from built up employee object

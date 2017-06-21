@@ -24,6 +24,7 @@ html(lang='en', ng-app='employees')
 		script(src='/employeelist/employeeList.controller.js')
 		script(src='/register/register.controller.js')
 		script(src='/login/login.controller.js')
+		script(src='/logout/logout.controller.js')
 		script(src='/viewemployeedetail/employeedetail.controller.js')
 		script(src='app-services/authentication.service.js')
 		script(src='app-services/flash.service.js')
@@ -35,6 +36,8 @@ html(lang='en', ng-app='employees')
 			div.navbar-header
 				a.navbar-brand(href='') Ikea Social
 				a.navbar-brand(href='#/employee') Search
+				a.navbar-brand(href='#/update') Update Your Profile
+				a.navbar-brand(href='#/logout') Logout
 				
 		div.container
 			div(ng-view)

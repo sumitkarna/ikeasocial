@@ -30,7 +30,7 @@
 		
 		<li ng-repeat="employee in vm.allEmployees.data | filter:query">
 	
-			<a href="#/employee/{{employee._id}}">{{employee.name}}</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href="#/employee/{{employee.emailaddr}}">{{employee.name}}</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		</li>
 	</ul>
 </div>

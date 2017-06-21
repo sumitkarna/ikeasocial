@@ -30,7 +30,9 @@ exports.EmployeeSchema = new mongoose.Schema({
 
 exports.UserSchema = new mongoose.Schema({
 	userid: { type: String, required: true },
-	password:{ type: String, required: true }
+	password:{ type: String, required: true },
+	firstname:{ type: String, required: true },
+	lastname:{ type: String, required: true }
 });
 
 exports.PhotoSchema = new mongoose.Schema({
