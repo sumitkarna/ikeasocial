@@ -60,9 +60,16 @@ exports.list = function(req, res) {
 };
 
 exports.findByUserId = function(req, res) {
-	// Query Mongo for Employees, just get back the Employee Name
-    
-	User.find({userid:req.body.username}, {userid: 1}, function(error, users) {
-		res.json(users);
+	// Employee ID comes in the URL
+	var userid = req.params.userid;
+	
+	// Find the poll by its ID, use lean as we won't be changing it
+	User.find({userid:req.params.userid}, function(error, UserItem) {
+			if(UserItem.length){
+			res.json(UserItem[0]);
+		}else {
+			res.json({noRecords: true});
+			
+			}
 	});
 };

@@ -37,7 +37,7 @@ app.get('/api/employees/:id', routes.employee);
 app.post('/api/authenticate', userRoute.authenticate);
 app.get('/api/authenticate', userRoute.authenticate);
 app.post('/api/users',userRoute.create);
-app.get('/api/users/:userid',userRoute.create);
+app.get('/api/users/:userid',userRoute.findByUserId);
 app.get('/api/users',userRoute.create);
 app.get('/api/employeDetails/:id',routes.employeeDetail);
 

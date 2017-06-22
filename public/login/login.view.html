@@ -1,60 +1,97 @@
 <! DOCTYPE html>
 <html>
-    <head>
-        <title>Login to Ikea Social</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all">
-        <link rel="stylesheet" href="stylesheets/loginpage.css">  
-        
-    </head>
-    <body>
+
+<head>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-101496588-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <title>Login to Ikea Social</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <script type="text/javascript" src="https://oap.accuweather.com/launch.js"></script>
+    <link rel="stylesheet" href="stylesheets/loginpage.css">
+</head>
+
+<body>
+    <script type="text/javascript" src="https://secure.skypeassets.com/i/scom/js/skype-uri.js"></script>
+    <div id="SkypeButton_Call_ikeasocialapp_1">
+        <script type="text/javascript">
+            Skype.ui({
+                "name": "dropdown",
+                "element": "SkypeButton_Call_ikeasocialapp_1",
+                "participants": ["ikeasocialapp"],
+                "imageSize": 32
+            });
+        </script>
+    </div>
+    </script>
+   
+
+    <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash"
+        ng-bind="flash.message"></div>
+    <section class="container">
+        <div class="login">
+            <h2> Login</h2>
+            <form name="form" ng-submit="vm.login()" role="form">
+                <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && (form.username.$error.required  || form.username.$error.pattern)}">
+                    <label for="username">Email</label>
+                    <input type="username" name="username" id="username" class="form-control" ng-model="vm.username" ng-pattern="/^[A-Za-z0-9._%+-]+@in.ibm.com$/"
+                        required />
+                    <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
+                    <span ng-show="form.username.$dirty && form.username.$error.pattern" class="help-block">Email id in the format employeeId@in.ibm.com</span>
+                </div>
+                <div class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" class="form-control" ng-model="vm.password" required />
+                    <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary">Login</button>
+                    <img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+                    />
+                    <a href="#/register" class="btn btn-link">Register</a>
+                </div>
+            </form>
+        </div>
+        </br>
+        </br>
+        </br>
+        <p>Developed by: IKEA Social Solutioning Team</p>
+        <p>Contact information: <a href="mailto:subhadeep.bose@in.ibm.com;prmrinal@in.ibm.com;jaswatha@in.ibm.com;agngupta@in.ibm.com;sumit.karna@in.ibm.com?subject=Hear Me Out&body=Hi,
+  Good Job with the site. However, I am concerned with the below points:">Ikea Social App</a>.</p>
+        <a href="callto://+918095506583">Call Us!</a> &nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="skype:ikeasocialapp?call">Call My Skype!</a>&nbsp;&nbsp;&nbsp;
+        <a href="skype:ikeasocialapp?chat">Start chat</a></br>
+        </br>
+        <a href="https://www.accuweather.com/en/se/helsingborg/314777/weather-forecast/314777" class="aw-widget-legal">
+</a><div id="awcc1498126026148" class="aw-widget-current"  data-locationkey="314777" data-unit="c" data-language="en-us" data-useip="false" data-uid="awcc1498126026148"></div><script type="text/javascript" src="https://oap.accuweather.com/launch.js"></script>
+<a href="https://www.accuweather.com/en/in/bengaluru/204108/weather-forecast/204108" class="aw-widget-legal">
+</a><div id="awcc1498126082440" class="aw-widget-current"  data-locationkey="204108" data-unit="c" data-language="en-us" data-useip="false" data-uid="awcc1498126082440"></div><script type="text/javascript" src="https://oap.accuweather.com/launch.js"></script>
     
-    <!--Start of Tawk.to Script-->
+    </section>
+    </div>
+ <!--Start of Tawk.to Script-->
     <script type="text/javascript">
-            var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-            (function(){
-            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-            s1.async=true;
-            s1.src='https://embed.tawk.to/594b6815e9c6d324a4736b98/default';
-            s1.charset='UTF-8';
-            s1.setAttribute('crossorigin','*');
-            s0.parentNode.insertBefore(s1,s0);
+            var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+            angular.element($window).bind('load', function() {
+                alert('Hi');
+                var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+                s1.async = true;
+                s1.src = 'https://embed.tawk.to/594b6815e9c6d324a4736b98/default';
+                s1.charset = 'UTF-8';
+                s1.setAttribute('crossorigin', '*');
+                s0.parentNode.insertBefore(s1, s0);
             })();
     </script>
-<!--End of Tawk.to Script-->
-    </body>
-    <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
-    <section class="container">
-    <div class="login">
-      <h2> Login</h2>
-       <form name="form" ng-submit="vm.login()" role="form">
-        <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && (form.username.$error.required  || form.username.$error.pattern)}">
-            <label for="username">Email</label>
-            <input type="username" name="username" id="username" class="form-control" ng-model="vm.username" ng-pattern="/^[A-Za-z0-9._%+-]+@in.ibm.com$/" required />
-           <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
-           <span ng-show="form.username.$dirty && form.username.$error.pattern" class="help-block">Email id in the format employeeId@in.ibm.com</span>
-        </div>
-        <div class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password" class="form-control" ng-model="vm.password" required />
-            <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
-        </div>
-        <div class="form-actions">
-            <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary">Login</button>
-            <img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
-            <a href="#/register" class="btn btn-link">Register</a>
-        </div>
-    </form>
-    </div>
-    </section>
+    <!--End of Tawk.to Script-->
+</body>
 
-<footer>
-  <p>Developed by: IKEA Social Solutioning Team</p>
-  <p>Contact information: <a href="mailto:subhadeep.bose@in.ibm.com;prmrinal@in.ibm.com;jaswatha@in.ibm.com;agngupta@in.ibm.com;sumit.karna@in.ibm.com?subject=Hear Me Out&body=Hi,
-  Good Job with the site. However, I am concerned with the below points:">Ikea Social App</a>.</p>
- 
- 
-</footer>
-
-
-</div>
+</html>
