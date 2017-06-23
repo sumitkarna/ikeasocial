@@ -6,18 +6,30 @@ angular.module('employees')
 ProfileCratioinController.$inject = ['EmployeeService','UserService', '$location','$scope', '$rootScope', 'FlashService'];
     function ProfileCratioinController(EmployeeService,UserService, $location, $scope,$rootScope, FlashService) {
         var vm = this;
-		vm.employee={
-		name:fullname,role:'',basedin:'',emailaddr:$rootScope.globals.currentUser.username,team:'',phone:'',aboutme:'',
-        biggestmistake:'',successtory:'',funfact:'',watchoutfor:'',notoverlook:'',joinmonthibm:'',joinyearibm:'',
-        joinmonthikea:'',joinyearikea:'',birthday:'',birthmonth:'',anniversaryday:'',anniversarymonth:'',
-        facebooklink:'',linkedinlink:'',twitterlink:'',instagramlink:''
-	};
         vm.createEmployee = createEmployee;
-        $scope.init=getUserByID;
-        var fullname;
+         $scope.init=getUserByID;
+
+        function getUserByID() {
+            vm.dataLoading = true;
+            UserService.GetById($rootScope.globals.currentUser.username)
+                .then(function (response) {
+                    var fullname=response.firstname+' '+response.lastname;
+                     $scope.employee={
+                        name:fullname,
+                        emailaddr:response.userid,
+                        role:'',basedin:'',team:'',phone:'',aboutme:'',
+                        biggestmistake:'',successtory:'',funfact:'',watchoutfor:'',notoverlook:'',joinmonthibm:'',joinyearibm:'',
+                        joinmonthikea:'',joinyearikea:'',birthday:'',birthmonth:'',anniversaryday:'',anniversarymonth:'',
+                        facebooklink:'',linkedinlink:'',twitterlink:'',instagramlink:''
+                     }
+                });
+        }
+        
+		
+        
         function createEmployee() {
             vm.dataLoading = true;
-            EmployeeService.Create(vm.employee)
+            EmployeeService.Create($scope.employee)
                 .then(function (response) {
                     if (response.data.success) {
                         $location.path('/employee/'+response.data.emailaddr);
@@ -28,16 +40,5 @@ ProfileCratioinController.$inject = ['EmployeeService','UserService', '$location
                 });
         }
 
-        function getUserByID() {
-            vm.dataLoading = true;
-            UserService.GetById($rootScope.globals.currentUser.username)
-                .then(function (response) {
-                    fullname=response.firstname+' '+response.lastname;
-                     $scope.employee={
-                        fullname:fullname,
-                        emailaddr:response.userid
-                     }
-                   
-                });
-        }
+        
     }

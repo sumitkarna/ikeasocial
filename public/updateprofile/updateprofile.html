@@ -12,8 +12,9 @@
   </head>
 
   <body>
-       <div>		
-					<form class="well form-horizontal" role="form" ng-submit="vm.updateEmployee()" id="contact_form">
+	  <div ng-init="init()">
+       <div>	
+					<form class="well form-horizontal" role="form" ng-submit="vm.updateEmployee()" ng-controller="ProfileUpdationController" id="contact_form">
 					<fieldset>
 							<!-- Form Name -->
 							<legend><b><span id="head-title"> Update Your Profile! </span></b></legend>
@@ -24,7 +25,7 @@
 									<div class="col-md-4 inputGroupContainer">
 										<div class="input-group margin-1">
 										<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-										<input  name="name" title="Name" style="width: 25em;" ng-model="vm.employee.name" required="required" placeholder="Name" class="form-control"  type="text">
+										<input  readonly name="name" title="Name" style="width: 25em;" ng-model="employee.name" required="required" placeholder="Name" class="form-control"  type="text">
 										</div>
 								</div>
 							</div>
@@ -35,7 +36,7 @@
 									<div class="col-md-4 inputGroupContainer">
 										<div class="input-group ">
 										<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-										<input required="required"  name="role" ng-model="vm.employee.role" style="width:25em;" placeholder="Role" class="form-control"  type="text">
+										<input required="required"  name="role" ng-model="employee.role" style="width:25em;" placeholder="Role" class="form-control"  type="text">
 									</div>
 								</div>
 							</div>
@@ -46,7 +47,7 @@
 									<div class="col-md-4 inputGroupContainer">
 										<div class="input-group  margin-1">
 										<span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
-										<input required="required" ng-model="vm.employee.basedin" name="basedin" style="width:25em;" placeholder="Location" class="form-control"  type="text">
+										<input required="required" ng-model="employee.basedin" name="basedin" style="width:25em;" placeholder="Location" class="form-control"  type="text">
 									</div>
 								</div>
 							</div>
@@ -57,7 +58,7 @@
 									<div class="col-md-4 inputGroupContainer">
 										<div class="input-group">
 									 		<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-										<input readonly ng-model="vm.employee.emailaddr" name="emailaddr" required="required" value="{{globals.currentUser.username}}" placeholder="{{globals.currentUser.username}}" style="width:25em;" class="form-control"  type="email">
+										<input readonly ng-model="employee.emailaddr" name="emailaddr" required="required" value="{{globals.currentUser.username}}" placeholder="{{globals.currentUser.username}}" style="width:25em;" class="form-control"  type="email">
 									</div>
 								</div>
 							</div>
@@ -68,7 +69,7 @@
 									<div class="col-md-4 inputGroupContainer">
 										<div class="input-group">
 											<span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-											<select name="team" id="team" ng-model=" vm.employee.team" required="required" style="width:25em;" class="form-control selectpicker" >
+											<select name="team" id="team" ng-model=" employee.team" required="required" style="width:25em;" class="form-control selectpicker" >
 												<option value=" " >Please select your team</option>
 												<option >Corporate Support</option>
 												<option >e-Com</option>
@@ -85,7 +86,7 @@
 									<div class="col-md-4 inputGroupContainer">
 										<div class="input-group">
 											<span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
-										<input ng-model="vm.employee.phone" name="phone" id="phone" style="width:25em;" placeholder="(91)9000000001" class="form-control" type="text">
+										<input ng-model="employee.phone" name="phone" id="phone" style="width:25em;" placeholder="(91)9000000001" class="form-control" type="text">
 									</div>
 								</div>
 							</div>
@@ -96,7 +97,7 @@
 									<div class="col-md-4 inputGroupContainer">
 										<div class="input-group" style=" margin-left: 1.1em;margin-top: 2em;width: 28em;">
 											<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-											<textarea ng-model="vm.employee.aboutme" name="aboutme" id="aboutme" placeholder="About me" class="form-control" > </textarea>
+											<textarea ng-model="employee.aboutme" name="aboutme" id="aboutme" placeholder="About me" class="form-control" > </textarea>
 										</div>
 								</div>
 							</div>
@@ -106,7 +107,7 @@
 									<div class="col-md-4 inputGroupContainer">
 										<div class="input-group">
 											<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-											<textarea class="form-control"  style="width:25em;" name="notoverlook" id="notoverlook" ng-model="vm.employee.notoverlook" placeholder="Not to overlook"></textarea>
+											<textarea class="form-control"  style="width:25em;" name="notoverlook" id="notoverlook" ng-model="employee.notoverlook" placeholder="Not to overlook"></textarea>
 									</div>
 								</div>
 							</div>
@@ -116,7 +117,7 @@
 									<div class="col-md-4 inputGroupContainer">
 										<div class="input-group" style=" margin-left: -0.8em;margin-top: 1em;width: 28em;">
 											<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-											<textarea name="biggestmistake" ng-model="vm.employee.biggestmistake" id="biggestmistake" placeholder="Biggest Mistake" class="form-control" > </textarea>
+											<textarea name="biggestmistake" ng-model="employee.biggestmistake" id="biggestmistake" placeholder="Biggest Mistake" class="form-control" > </textarea>
 										</div>
 								</div>
 							</div>
@@ -127,7 +128,7 @@
 									<div class="col-md-4 inputGroupContainer">
 										<div class="input-group">
 											<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-											<textarea class="form-control"  style="width:25em;" name="successtory" ng-model="vm.employee.successtory" id="successtory" placeholder="Success Story"></textarea>
+											<textarea class="form-control"  style="width:25em;" name="successtory" ng-model="employee.successtory" id="successtory" placeholder="Success Story"></textarea>
 										</div>
 								</div>
 							</div>
@@ -137,7 +138,7 @@
 									<div class="col-md-4 inputGroupContainer">
 										<div class="input-group" style=" margin-left: -0.8em;margin-top: 1em;width: 28em;">
 											<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-											<textarea name="funfact" id="funfact" ng-model="vm.employee.funfact" placeholder="Funfact" class="form-control" > </textarea>
+											<textarea name="funfact" id="funfact" ng-model="employee.funfact" placeholder="Funfact" class="form-control" > </textarea>
 										</div>
 								</div>
 							</div>
@@ -148,7 +149,7 @@
 									<div class="col-md-4 inputGroupContainer">
 										<div class="input-group">
 											<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-											<textarea class="form-control"  style="width:25em;" name="watchoutfor" id="watchoutfor" ng-model="vm.employee.watchoutfor"  placeholder="watch out for"></textarea>
+											<textarea class="form-control"  style="width:25em;" name="watchoutfor" id="watchoutfor" ng-model="employee.watchoutfor"  placeholder="watch out for"></textarea>
 										</div>
 								</div>
 							</div>
@@ -158,7 +159,7 @@
 									<div class="col-md-4 inputGroupContainer">
 										<div class="input-group">
 											<span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-											<select name="joinmonthibm" id="joinmonthibm" ng-model="vm.employee.joinmonthibm" style="width:12em;" class="form-control selectpicker" >
+											<select name="joinmonthibm" id="joinmonthibm" ng-model="employee.joinmonthibm" style="width:12em;" class="form-control selectpicker" >
 												<option value="01">Jan </option>
 												<option value="02">Feb </option>
 												<option value="03">Mar</option>
@@ -177,7 +178,7 @@
 								<div class="col-md-4 inputGroupContainer">
 										<div class="input-group yearsinibm ">
 											<span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-											<select name="joinyearibm" id="joinyearibm" ng-model="vm.employee.joinyearibm" style="width:12em;" class="form-control selectpicker" >
+											<select name="joinyearibm" id="joinyearibm" ng-model="employee.joinyearibm" style="width:12em;" class="form-control selectpicker" >
 												<option value="2017">2017 </option>
 												<option value="2016">2016 </option>
 												<option value="2015">2015</option>
@@ -227,7 +228,7 @@
 									<div class="col-md-4 inputGroupContainer">
 										<div class="input-group yearsikeadiv">
 											<span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-											<select name="joinmonthikea" id="team" ng-model="vm.employee.joinmonthikea" style="width:12em;" class="form-control selectpicker" >
+											<select name="joinmonthikea" id="team" ng-model="employee.joinmonthikea" style="width:12em;" class="form-control selectpicker" >
 												<option value="01">Jan </option>
 												<option value="02">Feb </option>
 												<option value="03">Mar</option>
@@ -246,7 +247,7 @@
 								<div class="col-md-4 inputGroupContainer">
 										<div class="input-group">
 											<span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-											<select name="joinyearikea" id="team" ng-model="vm.employee.joinyearikea" style="width:12em;" class="form-control selectpicker" >
+											<select name="joinyearikea" id="team" ng-model="employee.joinyearikea" style="width:12em;" class="form-control selectpicker" >
 												<option value="2017">2017 </option>
 												<option value="2016">2016 </option>
 												<option value="2015">2015</option>
@@ -264,7 +265,7 @@
 									<div class="col-md-4 inputGroupContainer">
 										<div class="input-group">
 											<span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-											<select name="birthmonth" id="birthmonth" ng-model="vm.employee.birthmonth" style="width:12em;" class="form-control selectpicker" >
+											<select name="birthmonth" id="birthmonth" ng-model="employee.birthmonth" style="width:12em;" class="form-control selectpicker" >
 												<option value="01">Jan </option>
 												<option value="02">Feb </option>
 												<option value="03">Mar</option>
@@ -283,7 +284,7 @@
 								<div class="col-md-4 inputGroupContainer">
 										<div class="input-group birthday">
 											<span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-											<select name="birthday" id="team" ng-model="vm.employee.birthday" style="width:12em;" class="form-control selectpicker" >
+											<select name="birthday" id="team" ng-model="employee.birthday" style="width:12em;" class="form-control selectpicker" >
 												<option value="01">01 </option>
 												<option value="02">02 </option>
 												<option value="03">03</option>
@@ -326,7 +327,7 @@
 									<div class="col-md-4 inputGroupContainer">
 										<div class="input-group anniversary">
 											<span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-											<select name="aniversarymonth" id="aniversarymonth" ng-model="vm.employee.aniversarymonth" style="width:12em;" class="form-control selectpicker" >
+											<select name="aniversarymonth" id="aniversarymonth" ng-model="employee.aniversarymonth" style="width:12em;" class="form-control selectpicker" >
 												<option value="01">Jan </option>
 												<option value="02">Feb </option>
 												<option value="03">Mar</option>
@@ -345,7 +346,7 @@
 								<div class="col-md-4 inputGroupContainer">
 									<div class="input-group annieversaryday">
 											<span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-											<select name="annieversaryday" id="team" ng-model="vm.employee.annieversaryday" style="width:12em;" class="form-control selectpicker" >
+											<select name="annieversaryday" id="team" ng-model="employee.annieversaryday" style="width:12em;" class="form-control selectpicker" >
 												<option value="01">01 </option>
 												<option value="02">02 </option>
 												<option value="03">03</option>
@@ -384,19 +385,19 @@
 
 							<div class="hvr-grow">
 								<a href="#" id="facebook" class="hvr-grow" ><img src='images/facebook.jpg'/></a>
-								<input  name="facebook" style="width: 25em; margin-left: 9.2em;margin-top: -3em;" ng-model="vm.employee.facebook" placeholder="Facebook link" class="form-control"  type="text" />
+								<input  name="facebook" style="width: 25em; margin-left: 9.2em;margin-top: -3em;" ng-model="employee.facebook" placeholder="Facebook link" class="form-control"  type="text" />
 							</div>
 							<div class="hvr-grow">
 								<a href="#" id="twitter" class="hvr-grow"><img src='images/twitter.png'/></a>
-								<input  name="twitter" style="width: 25em; margin-left: 50em;margin-top: -4.7em;" ng-model="vm.employee.twitter" placeholder="Twitter link" class="form-control"  type="text" />
+								<input  name="twitter" style="width: 25em; margin-left: 50em;margin-top: -4.7em;" ng-model="employee.twitter" placeholder="Twitter link" class="form-control"  type="text" />
 							</div>
 							<div class="hvr-grow">
 								<a href="#" id="linkedin" class="hvr-grow"><img src='images/linkedin.jpg'/></a>
-								<input  name="linkedin" style="width: 25em; margin-left: 9em;margin-top: -3em;" ng-model="vm.employee.linkedin" placeholder="Linkedin link" class="form-control"  type="text" />
+								<input  name="linkedin" style="width: 25em; margin-left: 9em;margin-top: -3em;" ng-model="employee.linkedin" placeholder="Linkedin link" class="form-control"  type="text" />
 							</div>
 							<div class="hvr-grow">
 								<a href="#" id="instagram" class="hvr-grow"><img src='images/instagram.png'/></a>
-								<input  name="instagram" style="width: 25em; margin-left: 16em;margin-top: -3em;" ng-model="vm.employee.instagram" placeholder="Instagram link" class="form-control"  type="text" />
+								<input  name="instagram" style="width: 25em; margin-left: 16em;margin-top: -3em;" ng-model="employee.instagram" placeholder="Instagram link" class="form-control"  type="text" />
 							</div>
 
 							<!-- Image upload -->
@@ -419,6 +420,7 @@
 </div>
 		</fieldset>
 		</form>
+       </div>
 		</div>
 		</div>
 		<!-- /.container -->

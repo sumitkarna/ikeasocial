@@ -4,7 +4,7 @@ angular.module('employees', ['ngCookies','ngRoute','googlechart']).
 		$routeProvider.
 			when('/employee', { templateUrl: 'employeelist/employeeList.html', controller: EmployeeListCtrl , controllerAs: 'vm'}).
 			when('/login', { templateUrl: 'login/login.view.html', controller: LoginController, controllerAs: 'vm'}).
-            when('/logout', { templateUrl: '', controller: LogoutController, controllerAs: 'vm'}).
+            when('/logout', { templateUrl: 'login/login.view.html', controller: LogoutController, controllerAs: 'vm'}).
             when('/new', { templateUrl: 'profilecreation/profilecreation.html', controller: ProfileCratioinController,controllerAs: 'vm'}).
             when('/update', { templateUrl: 'updateprofile/updateprofile.html', controller: ProfileUpdationController,controllerAs: 'vm'}).
             when('/register', { templateUrl: 'register/register.view.html', controller: RegisterController, controllerAs: 'vm' }).
