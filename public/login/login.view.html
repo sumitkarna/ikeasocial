@@ -39,11 +39,30 @@
 
 <body>
 
-
+<div id="websiteIntro"></div>
     <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash"
-        ng-bind="flash.message"></div>
+        ng-bind="flash.message">
+    </div>
+
+    <iframe style="border:none" src="http://files.photosnack.com/iframejs/embed.html?hash=pdksv8slt&t=1498221271" width="600" height="400" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" ></iframe>
     <section class="container">
-        <div class="login">
+         <a href="https://www.accuweather.com/en/in/bengaluru/204108/weather-forecast/204108" class="aw-widget-legal">
+            <!--By accessing and/or using this code snippet, you agree to AccuWeather’s terms and conditions (in English) which can be found at https://www.accuweather.com/en/free-weather-widgets/terms and AccuWeather’s Privacy Statement (in English) which can be found at https://www.accuweather.com/en/privacy.-->
+        </a>
+      <div class="widget_margin">
+            <div id="widgetBangalore" class="aw-widget-current" data-locationkey="204108" data-unit="c" data-language="en-us"
+                data-useip="false" data-uid="awcc1498134347898"></div>
+            <script type="text/javascript" src="https://oap.accuweather.com/launch.js"></script>
+            <a href="https://www.accuweather.com/en/se/helsingborg/314777/weather-forecast/314777" class="aw-widget-legal">
+                <!--By accessing and/or using this code snippet, you agree to AccuWeather’s terms and conditions (in English) which can be found at https://www.accuweather.com/en/free-weather-widgets/terms and AccuWeather’s Privacy Statement (in English) which can be found at https://www.accuweather.com/en/privacy.-->
+            </a>
+            <div id="widgetHelsingborg" class="aw-widget-current" data-locationkey="314777" data-unit="c" data-language="en-us"
+                data-useip="false" data-uid="awcc1498134378953"></div>
+            <script type="text/javascript" src="https://oap.accuweather.com/launch.js"></script>        
+      </div>
+    </section>
+    </div>
+    <div class="login">
             <h2> Login</h2>
             <form name="form" ng-submit="vm.login()" role="form">
                 <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && (form.username.$error.required  || form.username.$error.pattern)}">
@@ -60,42 +79,25 @@
                 </div>
                 <div class="form-actions">
                     <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary">Login</button>
-                    <img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
-                    />
+                    <img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
                     <a href="#/register" class="btn btn-link">Register</a>
                 </div>
             </form>
         </div>
-        </br>
-        </br>
-        </br>
+
+    <div id="developedBy">
         <p>Developed by: IKEA Social Solutioning Team</p>
         <p>Contact information: <a href="mailto:subhadeep.bose@in.ibm.com;prmrinal@in.ibm.com;jaswatha@in.ibm.com;agngupta@in.ibm.com;sumit.karna@in.ibm.com?subject=Hear Me Out&body=Hi,
-  Good Job with the site. However, I am concerned with the below points:">Ikea Social App</a>.</p>
+        Good Job with the site. However, I am concerned with the below points:">Ikea Social App</a>.</p>
         <a href="callto://+918095506583">Call Us!</a> &nbsp;&nbsp;&nbsp;&nbsp;
         <a href="skype:ikeasocialapp?call">Call My Skype!</a>&nbsp;&nbsp;&nbsp;
         <a href="skype:ikeasocialapp?chat">Start chat</a></br>
         </br>
-        <a href="https://www.accuweather.com/en/in/bengaluru/204108/weather-forecast/204108" class="aw-widget-legal">
-            <!--
-By accessing and/or using this code snippet, you agree to AccuWeather’s terms and conditions (in English) which can be found at https://www.accuweather.com/en/free-weather-widgets/terms and AccuWeather’s Privacy Statement (in English) which can be found at https://www.accuweather.com/en/privacy.
--->
-        </a>
-        <div id="awcc1498134347898" class="aw-widget-current" data-locationkey="204108" data-unit="c" data-language="en-us"
-            data-useip="false" data-uid="awcc1498134347898"></div>
-        <script type="text/javascript" src="https://oap.accuweather.com/launch.js"></script>
-        <a href="https://www.accuweather.com/en/se/helsingborg/314777/weather-forecast/314777" class="aw-widget-legal">
-            <!--
-By accessing and/or using this code snippet, you agree to AccuWeather’s terms and conditions (in English) which can be found at https://www.accuweather.com/en/free-weather-widgets/terms and AccuWeather’s Privacy Statement (in English) which can be found at https://www.accuweather.com/en/privacy.
--->
-        </a>
-        <div id="awcc1498134378953" class="aw-widget-current" data-locationkey="314777" data-unit="c" data-language="en-us"
-            data-useip="false" data-uid="awcc1498134378953"></div>
-        <script type="text/javascript" src="https://oap.accuweather.com/launch.js"></script>
-
-    </section>
     </div>
-    <!--Start of Tawk.to Script-->
+
+        <!-- GoStats Simple HTML Based Code -->
+            <a target="_blank" title="web monitoring" href="http://gostats.com"><img alt="web monitoring" src="http://monster.gostats.com/bin/count/a_493350/t_4/i_19/z_0/show_hits/counter.png" style="border-width:0" /></a>
+        <!-- End GoStats Simple HTML Based Code --> 
     <!--Start of Tawk.to Script-->
     <script type="text/javascript">
             var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
@@ -108,12 +110,18 @@ By accessing and/or using this code snippet, you agree to AccuWeather’s terms 
                 s0.parentNode.insertBefore(s1, s0);
             })();
     </script>
+    <!-- GoStats JavaScript Based Code -->
+    <script type="text/javascript" src="http://gostats.com/js/counter.js"></script>
+    <script type="text/javascript">_gos='monster.gostats.com';_goa=493350;
+    _got=4;_goi=19;_goz=0;_god='hits';_gol='web monitoring';_GoStatsRun();</script>
+    <noscript><a target="_blank" title="web monitoring" 
+    href="http://gostats.com"><img alt="web monitoring" 
+    src="http://monster.gostats.com/bin/count/a_493350/t_4/i_19/z_0/show_hits/counter.png" 
+    style="border-width:0" /></a></noscript>
+<!-- End GoStats JavaScript Based Code -->
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-594cb3b08109a8d8"></script>
+     <!--End of Tawk.to Script-->
 
-    <script id="cid0020000159200285716" data-cfasync="false" async src="//st.chatango.com/js/gz/emb.js" style="width: 250px;height: 350px;">{"handle":"ikeasocialapp","arch":"js","styles":{"a":"CC0000","b":100,"c":"FFFFFF","d":"FFFFFF","k":"CC0000","l":"CC0000","m":"CC0000","n":"FFFFFF","p":"10","q":"CC0000","r":100,"cnrs":"0.35","fwtickm":1}}</script>
-    <!--End of Tawk.to Script-->
-    <!--End of Tawk.to Script-->
-   <iframe style="border:none" src="http://files.photosnack.com/iframejs/embed.html?hash=pdksv8slt&t=1498221271" width="600" height="400" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" ></iframe>
 </body>
 
 </html>
