@@ -97,7 +97,11 @@ exports.update = function(req, res) {
 	Employee.findOneAndUpdate(query, employeeeObj, {new: true}, function(err, doc){
     if(err){
         console.log("Something wrong when updating data!");
-    }
+    }else {
+			var r = doc.toJSON()
+			r.success = true;
+			res.json(r);
+		}	
 
     console.log(doc);
 });

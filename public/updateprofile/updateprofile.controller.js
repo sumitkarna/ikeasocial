@@ -39,13 +39,6 @@ ProfileUpdationController.$inject = ['EmployeeService', '$location', '$rootScope
                         twitterlink: response.data.twitterlink,
                         linkedinlink: response.data.linkedinlink
                     };
-                    if (response.success) {
-                        FlashService.Success('Employee detail successful', true);
-                    } else {
-                        FlashService.Error(response.message);
-                        vm.dataLoading = false;
-                    }
-                   
                 });
         }
 
@@ -54,7 +47,7 @@ ProfileUpdationController.$inject = ['EmployeeService', '$location', '$rootScope
             EmployeeService.Update($scope.employee)
                 .then(function (response) {
                     if (response.data.success) {
-                        $location.path('/employee/'+$scope.employee.emailaddr);
+                        $location.path('/employee/'+response.data.emailaddr);
                     } else {
                         FlashService.Error(response.message);
                         vm.dataLoading = false;
