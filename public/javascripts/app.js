@@ -7,6 +7,7 @@ angular.module('employees', ['ngCookies','ngRoute','googlechart']).
             when('/logout', { templateUrl: 'login/login.view.html', controller: LogoutController, controllerAs: 'vm'}).
             when('/feedback', { templateUrl: 'feedback/feedback.html',  controllerAs: 'vm'}).
             when('/survey', { templateUrl: 'survey/survey.html',  controllerAs: 'vm'}).
+            when('/aboutus', { templateUrl: 'aboutus/aboutus.html',  controllerAs: 'vm'}).
             when('/new', { templateUrl: 'profilecreation/profilecreation.html', controller: ProfileCratioinController,controllerAs: 'vm'}).
             when('/update', { templateUrl: 'updateprofile/updateprofile.html', controller: ProfileUpdationController,controllerAs: 'vm'}).
             when('/register', { templateUrl: 'register/register.view.html', controller: RegisterController, controllerAs: 'vm' }).
