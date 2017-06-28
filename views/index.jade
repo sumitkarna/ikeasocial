@@ -46,12 +46,12 @@ html(lang='en', ng-app='employees')
 		nav.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
 			div.navbar-header
 				a.navbar-brand(href='') Ikea Social
-				a.navbar-brand(href='#/employee') Search
-				a.navbar-brand(href='#/update') Update Your Profile
-				a.navbar-brand(href='#/feedback') Feedback
-				a.navbar-brand(href='#/survey') Survey
+				a.navbar-brand(href='#/employee', ng-show='$root.globals.currentUser') Search
+				a.navbar-brand(href='#/update', ng-show='$root.globals.currentUser') Update Your Profile
+				a.navbar-brand(href='#/feedback', ng-show='$root.globals.currentUser') Feedback
+				a.navbar-brand(href='#/survey', ng-show='$root.globals.currentUser') Survey
 				a.navbar-brand(href='#/aboutus') About Us
-				a.navbar-brand(href='#/logout') Logout
+				a.navbar-brand(href='#/logout', ng-show='$root.globals.currentUser') Logout
 				
 		div.container
 			div(ng-view)
