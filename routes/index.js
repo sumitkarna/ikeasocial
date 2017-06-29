@@ -80,12 +80,12 @@ exports.update = function(req, res) {
 				joinyearikea:reqBody.joinyearikea,
 				birthday:reqBody.birthday,
 				birthmonth:reqBody.birthmonth,
-				anniversaryday:reqBody.annieversaryday,
-				anniversarymonth:reqBody.aniversarymonth,
-				facebooklink: reqBody.facebook,
-				linkedinlink: reqBody.linkedin,
-				twitterlink: reqBody.twitter,
-				instagramlink:  reqBody.instagram
+				anniversarymonth:reqBody.anniversarymonth,
+				anniversaryday:reqBody.anniversaryday,
+				facebooklink: reqBody.facebooklink,
+				twitterlink: reqBody.twitterlink,
+				linkedinlink: reqBody.linkedinlink,
+				instagramlink:  reqBody.instagramlink
 		};
 
 		
@@ -102,8 +102,6 @@ exports.update = function(req, res) {
 			r.success = true;
 			res.json(r);
 		}	
-
-    console.log(doc);
 });
 };
 
@@ -111,6 +109,7 @@ exports.update = function(req, res) {
 exports.create = function(req, res) {
 
 	var reqBody = req.body,
+
 			// Build up employee object to save
 			employeeeObj = {
 				name: reqBody.name, 
@@ -131,14 +130,14 @@ exports.create = function(req, res) {
 				joinyearikea:reqBody.joinyearikea,
 				birthday:reqBody.birthday,
 				birthmonth:reqBody.birthmonth,
-				anniversaryday:reqBody.annieversaryday,
-				anniversarymonth:reqBody.aniversarymonth,
-				facebooklink: reqBody.facebook,
-				linkedinlink: reqBody.linkedin,
-				twitterlink: reqBody.twitter,
-				instagramlink:  reqBody.instagram
+				anniversarymonth:reqBody.anniversarymonth,
+				anniversaryday:reqBody.anniversaryday,
+				facebooklink: reqBody.facebooklink,
+				twitterlink: reqBody.twitterlink,
+				linkedinlink: reqBody.linkedinlink,
+				instagramlink:  reqBody.instagramlink
 		};
-
+		
 		/*photobj={
 			emailaddr:reqBody.emailaddr,
 			profilephoto:reqBody.profilephoto
@@ -155,7 +154,7 @@ exports.create = function(req, res) {
 			var r = doc.toJSON()
 			r.success = true;
 			res.json(r);
-		}		
+		}	
 	});
 	
 	

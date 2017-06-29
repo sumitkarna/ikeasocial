@@ -1,0 +1,14 @@
+div.right-align {
+  width: 45%;
+  float: right;
+  background: red;
+}
+
+div.left-align {
+  width: 35%;
+  float: left;
+  margin-left: -80px;
+  margin-top: 20px;
+  
+}
+

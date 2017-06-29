@@ -18,9 +18,10 @@ ProfileCratioinController.$inject = ['EmployeeService','UserService', '$location
                         name:fullname,
                         emailaddr:response.userid,
                         role:'',basedin:'',team:'',phone:'',aboutme:'',
-                        biggestmistake:'',successtory:'',funfact:'',watchoutfor:'',notoverlook:'',joinmonthibm:'',joinyearibm:'',
-                        joinmonthikea:'',joinyearikea:'',birthday:'',birthmonth:'',anniversaryday:'',anniversarymonth:'',
-                        facebooklink:'',linkedinlink:'',twitterlink:'',instagramlink:''
+                        biggestmistake:'',successtory:'',funfact:'',watchoutfor:'',notoverlook:'',joinmonthibm:'',
+                        joinyearibm:'',joinmonthikea:'',joinyearikea:'',birthday:'',birthmonth:'',
+                        anniversarymonth:'',anniversaryday:'',
+                        facebooklink:'',twitterlink:'',linkedinlink:'',instagramlink:''
                      }
                 });
         }

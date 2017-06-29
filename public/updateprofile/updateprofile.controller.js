@@ -33,7 +33,7 @@ ProfileUpdationController.$inject = ['EmployeeService', '$location', '$rootScope
                         birthday: response.data.birthday,
                         birthmonth:response.data.birthmonth,
                         annieversaryday: response.data.annieversaryday,
-                        aniversarymonth:response.data.aniversarymonth,
+                        anniversarymonth:response.data.anniversarymonth,
                         facebooklink: response.data.facebooklink,
                         instagramlink: response.data.instagramlink,
                         twitterlink: response.data.twitterlink,

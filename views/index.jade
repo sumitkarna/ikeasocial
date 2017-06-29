@@ -3,12 +3,13 @@ html(lang='en', ng-app='employees')
 	head
 		meta(charset='utf-8')
 		meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no')
-		title Employee
+		title IKEA Social
 		link(rel='stylesheet' href='//netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.min.css')
 		link(rel='stylesheet' href='/stylesheets/style.css')
 		link(rel='stylesheet' href='/stylesheets/loginpage.css')
 		script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js')
 		script(src='//secure.skypeassets.com/i/scom/js/skype-uri.js')
+		script(src='//fonts.googleapis.com/css?family=Fredoka%20One')
 		script(src='//embed.tawk.to/594b6815e9c6d324a4736b98/default')
 		script(src='//www.google-analytics.com/analytics.js')
 		script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-resource.min.js')
@@ -50,7 +51,7 @@ html(lang='en', ng-app='employees')
 				a.navbar-brand(href='#/update', ng-show='$root.globals.currentUser') Update Your Profile
 				a.navbar-brand(href='#/feedback', ng-show='$root.globals.currentUser') Feedback
 				a.navbar-brand(href='#/survey', ng-show='$root.globals.currentUser') Survey
-				a.navbar-brand(href='#/aboutus') About Us
+				a.navbar-brand(href='#/aboutus', ng-show='$root.globals.currentUser') About Us
 				a.navbar-brand(href='#/logout', ng-show='$root.globals.currentUser') Logout
 				
 		div.container

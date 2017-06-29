@@ -19,6 +19,11 @@ body {
 #widgetBangalore{
   
 }
+#webcount{
+  float: left;
+    margin-left: -37em;
+    margin-top: 29em;
+}
 .widget_margin{
     margin-left: -30em;
     margin-right: 53em;
