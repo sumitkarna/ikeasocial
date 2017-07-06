@@ -1,9 +1,31 @@
 /*jshint node:true*/
 var express = require('express');
 var routes = require('./routes/index.js');
+var bodyParser = require('body-parser');
 var http = require('http');
 var path = require('path');
 var userRoute = require('./routes/emp.js');
+var multer  = require('multer');
+var methodOverride = require('method-override');
+var mime = require('mime');
+
+
+var storage =   multer.diskStorage({
+  destination: function (req, file, callback) {
+    callback(null, __dirname+'/uploads');
+  },
+  filename: function (req, file, callback) {
+	
+    callback(null, file.originalname + '-' + Date.now()+ '.' + mime.extension(file.mimetype));
+	
+  }
+});
+
+//var upload = multer({ dest:'./uploads' }, {onFileUploadData: function (file, data) {
+  //console.log(data.length + ' of ' + file.fieldname + ' arrived')
+//}});
+var upload = multer({ storage: storage });
+
 
 var app = express();
 var server = http.createServer(app);
@@ -12,12 +34,20 @@ var io = require('socket.io').listen(server);
 app.set('port', process.env.VCAP_APP_PORT || 8080);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({
+	limit: '50mb',
+  extended: true
+}))
 app.use(express.favicon());
 app.use(express.logger('dev'));
-app.use(express.bodyParser());
-app.use(express.methodOverride());
+//app.use(express.bodyParser());
+//app.use(express.methodOverride());
+app.use(methodOverride());
 app.use(app.router);
+
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/fileUpload', express.static(__dirname + '/node_modules/ng-file-upload/dist/'));
 
 // Handle Errors gracefully
 app.use(function(err, req, res, next) {
@@ -25,6 +55,16 @@ app.use(function(err, req, res, next) {
 	console.log(err.stack);
 	res.json({error: true});
 });
+
+var storage	=	multer.diskStorage({
+  destination: function (req, file, callback) {
+    callback(null, './uploads');
+  },
+  filename: function (req, file, callback) {
+	callback(null, file.originalname);
+  }
+});
+var upload2 = multer({ storage : storage}).single('myfile');
 
 // Main App Page
 app.get('/', routes.index);
@@ -40,6 +80,25 @@ app.post('/api/users',userRoute.create);
 app.get('/api/users/:userid',userRoute.findByUserId);
 app.get('/api/users',userRoute.create);
 app.get('/api/employeDetails/:id',routes.employeeDetail);
+//app.post('/upload/photos', upload.single('file'), function (req, res, next) {
+//	console.log("request: " + req.file);
+//	console.log(req.files, 'files');
+  // req.body will hold the text fields, if there were any 
+  //res.json({success:true});
+//})
+//app.post('/upload/photos',upload.single('images'),function(req, res) {
+	app.post('/upload/photos',upload.single('file'),routes.photoSave);
+	app.get('/view/photos/:id',routes.viewPhoto);
+
+app.post('/uploadjavatpoint',function(req,res){
+	upload2(req,res,function(err) {
+    console.log(req.files);
+		if(err) {
+			return res.end("Error uploading file.");
+		}
+		res.end("File is uploaded successfully!");
+	});
+});
 
 server.listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

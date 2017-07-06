@@ -16,6 +16,7 @@
         service.Update = Update;
         service.Delete = Delete;
         service.GetEmployeeDetailsById = GetEmployeeDetailsById;
+        service.GetEmployeePhotoById = GetEmployeePhotoById;
 
         return service;
 
@@ -46,6 +47,9 @@
             return $http.delete('/api/employees/' + id).then(handleSuccess, handleError('Error deleting user'));
         }
 
+  function GetEmployeePhotoById(id) {
+            return $http.get('/view/photos/' + id).then(handleSuccess, handleError('Error getting user by id'));
+        }
         // private functions
 
         function handleSuccess(res) {

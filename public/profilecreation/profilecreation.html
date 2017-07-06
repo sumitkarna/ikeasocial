@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/ng-img-crop/0.3.2/ng-img-crop.css" rel="stylesheet"/>
 		<link rel="stylesheet" href="stylesheets/profileCreation.css">		
   </head>
 
@@ -405,8 +406,20 @@
 								<label class="col-md-4 control-label">Photos</label>  
 									<div class="col-md-4 inputGroupContainer">
 										<div class="input-group">
-										<input name="file" ng-model="employee.profilephoto" name="profilephoto" type="file">
-									</div>
+											 <div class="button" ngf-select ng-model="employee.profilephoto" name="profilephoto" ngf-pattern="'image/*'"
+    ngf-accept="'image/*'"
+    >Select</div>
+
+	<div ngf-drop ng-model="employee.profilephoto" ngf-pattern="image/*"
+             class="cropArea">
+            <img-crop image="employee.profilephoto  | ngfDataUrl"                 
+            result-image="employee.croppedDataUrl" ng-init="croppedDataUrl=''">
+            </img-crop>
+        </div>
+        <div>
+            <img ng-src="{{employee.croppedDataUrl}}" ng-mod/>
+        </div>
+										</div>
 								</div>
 							</div>
 
@@ -424,6 +437,8 @@
 		</div>
 		</div>
 		<!-- /.container -->
-  	
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/danialfarid-angular-file-upload/12.0.4/ng-file-upload.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ng-img-crop/0.3.2/ng-img-crop.js"></script>
   </body>
 </html>

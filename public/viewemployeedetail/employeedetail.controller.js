@@ -46,16 +46,28 @@ EmployeeDetailController.$inject = ['EmployeeService', '$location', '$rootScope'
                         twitterlink: response.data.twitterlink,
                         linkedinlink: response.data.linkedinlink
                     };
-                    if (response.success) {
-                        FlashService.Success('Employee detail successful', true);
-                    } else {
-                        FlashService.Error(response.message);
-                        vm.dataLoading = false;
-                    }
+
+                     EmployeeService.GetEmployeePhotoById($routeParams.employeeId).then(
+                            function (response) {
+                                $scope.employee.profilephoto = 
+                                'data:image/jpeg;base64,' + _arrayBufferToBase64(response.data.img.data.data);
+                            }
+
+                        )
+
+                   
                    
                 });
         }
-
+function _arrayBufferToBase64( buffer ) {
+    var binary = '';
+    var bytes = new Uint8Array( buffer );
+    var len = bytes.byteLength;
+    for (var i = 0; i < len; i++) {
+        binary += String.fromCharCode( bytes[ i ] );
+    }
+    return window.btoa( binary );
+}
          
 
     }

@@ -15,8 +15,8 @@
 					<form class="well form-horizontal" role="form" id="contact_form">
                         <fieldset>
 							<button class="sphere_edit edit_blue" id="edit">Edit</button>
-							<div class="circle hide"></div>
-                        	<legend id="name"><b><span id="name_display"> {{employee.name}} </span></b></legend>
+							 <img ng-src="{{employee.profilephoto}}" border="0" />
+                        	<legend><b><span id="name_display"> {{employee.name}} </span></b></legend>
                             <div id="basic-info">
 								<div id="role"> <b>{{employee.role}} <br/> {{employee.team}}</b>, {{employee.basedin}}</div>
                             </div>
@@ -73,8 +73,8 @@
 <script type="text/javascript" >
 	 $( ".container" ).click(function() {
 		$( "div.second" ).replaceWith( "<h2>New heading</h2>" );
-	}
+	},
      $( ".button_class" ).click(function() {
        $('.class_Of_label_email').replaceWith($('<input>' + $('.class_Of_label_email').innerHTML + '</input>'));
-    });
+    }));
 	</script>

@@ -1,4 +1,5 @@
 var db = require( './dbservice.js').db;
+var fs = require('fs');
 
 
 // Get Employee schema and model
@@ -158,4 +159,33 @@ exports.create = function(req, res) {
 	});
 	
 	
+};
+
+exports.photoSave = function(req, res) {
+		console.log(req.file);
+	
+	 var photo = new Photo;
+photo.img.data = fs.readFileSync(req.file.path);
+photo.img.contentType = req.file.mimetype;
+photo.emailaddr=req.file.originalname;
+  photo.save(function (err, a) {
+if (err) throw err;
+	});
+			res.end('File is uploaded')
+};
+
+exports.viewPhoto = function(req, res) {
+	
+	// Employee ID comes in the URL
+	var userid = req.params.id;
+	
+	// Find the poll by its ID, use lean as we won't be changing it
+	Photo.find({emailaddr:req.params.id}, function(error, photItem) {
+			if(photItem.length){
+			res.json(photItem[0]);
+		}else {
+			res.json({noRecords: true});
+			
+			}
+	});
 };

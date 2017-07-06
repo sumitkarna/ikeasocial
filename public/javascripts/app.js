@@ -1,5 +1,5 @@
 // Angular module, defining routes for the app
-angular.module('employees', ['ngCookies','ngRoute','googlechart']).
+angular.module('employees', ['ngCookies','ngRoute','googlechart','ngFileUpload','ngImgCrop']).
 	config(['$routeProvider', function($routeProvider) {
 		$routeProvider.
 			when('/employee', { templateUrl: 'employeelist/employeeList.html', controller: EmployeeListCtrl , controllerAs: 'vm'}).
