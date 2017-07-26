@@ -10,8 +10,8 @@ body {
 }
 #developedBy{
   float: right;
-  margin-right: -29em;
-  margin-top: -20em;
+    margin-right: -32em;
+    margin-top: -34em
 }
 #websiteIntro{
   min-height: 3em;
@@ -19,13 +19,23 @@ body {
 #widgetBangalore{
   
 }
+#photos{
+  margin-left: -7em;
+}
+#introduction{
+    font-size: 15px;
+    font-weight: bold;
+    margin-left: -23em;
+    margin-top: -3.5em;
+    width: 85em;
+}
 #webcount{
   float: left;
     margin-left: -37em;
     margin-top: 29em;
 }
 .widget_margin{
-    margin-left: -30em;
+    margin-left: -31em;
     margin-right: 53em;
     margin-top: -37.3em;
 }
@@ -37,7 +47,7 @@ body {
   background: white;
   box-shadow: 10px 10px 5px grey;
   float: right;
-  margin:-43.2em -32em 0 auto;
+  margin:-58.2em -35em 0 0;
   border-radius: 3px;
   @include box-shadow(0 0 200px rgba(white, .5), 0 1px 2px rgba(black, .3));
 }
