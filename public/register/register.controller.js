@@ -13,7 +13,7 @@
             UserService.Create(vm.user)
                 .then(function (response) {
                     if (response.success) {
-                        FlashService.Success('Registration successful', true);
+                        FlashService.Success('Registration successful, please confirm the email by clicking on the link', true);
                         $location.path('/login');
                     } else {
                         FlashService.Error(response.message);

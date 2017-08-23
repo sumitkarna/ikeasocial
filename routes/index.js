@@ -174,6 +174,28 @@ if (err) throw err;
 			res.end('File is uploaded')
 };
 
+exports.photoUpdate = function(req, res) {
+		console.log(req.file);
+	
+	 var photo = new Photo;
+photo.img.data = fs.readFileSync(req.file.path);
+photo.img.contentType = req.file.mimetype;
+photo.emailaddr=req.file.originalname;
+var query = { emailaddr: req.file.originalname };
+	console.log(query);
+
+Photo.findOneAndUpdate(query, { "$set" : { "img.data": fs.readFileSync(req.file.path), "img.contentType" : req.file.mimetype } }, {new: true, upsert : true }, function(err, doc){
+    if(err){
+        console.log("Something wrong when updating data!");
+    }else {	
+			
+			res.json({success: true});
+		}	
+
+	});
+ 
+			
+};
 exports.viewPhoto = function(req, res) {
 	
 	// Employee ID comes in the URL

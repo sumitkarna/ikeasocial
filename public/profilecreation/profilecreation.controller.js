@@ -58,7 +58,7 @@ ProfileCratioinController.$inject = ['EmployeeService','UserService', '$location
                     if (response.data.success) {
                        // upload($scope.employee.profilephoto);
                         upload($scope.employee.croppedDataUrl, $scope.employee.emailaddr);
-                       // $location.path('/employee/'+response.data.emailaddr);
+                        $location.path('/employee/'+response.data.emailaddr);
                     } else {
                         FlashService.Error(response.message);
                         vm.dataLoading = false;

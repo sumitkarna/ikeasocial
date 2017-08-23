@@ -3,6 +3,6 @@ applications:
   memory: 256M
   instances: 1
   domain: mybluemix.net
-  name: coworkersconnect
-  host: coworkersconnect
+  name: ikeasocialapp
+  host: ikeasocialapp
   disk_quota: 1024M

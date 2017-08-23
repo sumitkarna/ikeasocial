@@ -3,8 +3,8 @@ angular.module('employees')
 
 
 // Controller for updating a new employee
-ProfileUpdationController.$inject = ['EmployeeService', '$location', '$rootScope', '$scope','FlashService'];
-    function ProfileUpdationController(EmployeeService, $location, $rootScope, $scope,FlashService) {
+ProfileUpdationController.$inject = ['EmployeeService', 'UserService','$location', '$rootScope', '$scope','FlashService','Upload'];
+    function ProfileUpdationController(EmployeeService,UserService, $location, $rootScope, $scope,FlashService,Upload) {
          var vm = this;
        vm.updateEmployee = updateEmployee;
        $scope.init = GetEmployeeById;
@@ -37,16 +37,54 @@ ProfileUpdationController.$inject = ['EmployeeService', '$location', '$rootScope
                         facebooklink: response.data.facebooklink,
                         instagramlink: response.data.instagramlink,
                         twitterlink: response.data.twitterlink,
-                        linkedinlink: response.data.linkedinlink
+                        linkedinlink: response.data.linkedinlink,
+                        profilephotos: "",
+                        croppedDataUrl: ""
                     };
-                });
+               
+
+
+                EmployeeService.GetEmployeePhotoById($rootScope.globals.currentUser.username).then(
+                            function (response) {
+                                $scope.employee.profilephoto = 
+                                'data:image/jpeg;base64,' + _arrayBfrToBase64(response.data.img.data.data);
+                              
+                            }
+
+                        )
+
+                        
+                         });
         }
 
+   vm.upload = upload;
+// upload on file select or drop 
+   function upload(photofiles,emailaddr) {
+      
+ Upload.upload({
+          url:'/upload/photosUpdate',
+            headers : {
+            'Content-Type': 'multipart/form-data'
+        },
+         //data:{images:photofiles, username: "jyothi"}
+         file: Upload.dataUrltoBlob(photofiles, emailaddr)
+        }).then(function (resp) {
+            console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
+        }, function (resp) {
+            console.log('Error status: ' + resp.status);
+        }, function (evt) {
+            var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+            console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
+        });
+      
+       
+    }
         function updateEmployee() {
             vm.dataLoading = true;
             EmployeeService.Update($scope.employee)
                 .then(function (response) {
                     if (response.data.success) {
+                        upload($scope.employee.croppedDataUrl, $scope.employee.emailaddr);
                         $location.path('/employee/'+response.data.emailaddr);
                     } else {
                         FlashService.Error(response.message);
@@ -54,4 +92,14 @@ ProfileUpdationController.$inject = ['EmployeeService', '$location', '$rootScope
                     }
                 });
         }
+
+        function _arrayBfrToBase64( buffer ) {
+    var binary = '';
+    var bytes = new Uint8Array( buffer );
+    var len = bytes.byteLength;
+    for (var i = 0; i < len; i++) {
+        binary += String.fromCharCode( bytes[ i ] );
+    }
+    return window.btoa( binary );
+}
     }

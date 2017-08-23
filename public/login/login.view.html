@@ -50,8 +50,10 @@
     <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash"
         ng-bind="flash.message">
     </div>
+    
+     <div ng-repeat="message in messages" message="message"></div>
 
-    <iframe style="border:none" id="photos" src="http://files.photosnack.com/iframejs/embed.html?hash=pdksv8slt&t=1498735392" width="800" height="400" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" >
+    <iframe style="margin-left:-22em;margin-top:-2em;border:none" id="photos" src="http://files.photosnack.com/iframejs/embed.html?hash=pdksv8slt&t=1498735392" width="800" height="400" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" >
     </iframe>
     <section class="container">       
             <!--By accessing and/or using this code snippet, you agree to AccuWeather’s terms and conditions (in English) which can be found at https://www.accuweather.com/en/free-weather-widgets/terms and AccuWeather’s Privacy Statement (in English) which can be found at https://www.accuweather.com/en/privacy.-->
@@ -91,7 +93,7 @@
             </div>
       </div>
     </section>
-    </div>
+    
     <div class="login">
             <h2> Login</h2>
             <form name="form" ng-submit="vm.login()" role="form">

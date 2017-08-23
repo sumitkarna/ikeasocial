@@ -11,10 +11,10 @@
             },
             "Packager": "com.ibm.perfectstorm.cloudoe.packager.LiveEditDeploymentPackager"
         },
-        "Name": "ikeasocial",
+        "Name": "ikeasocialapp",
         "Target": {
-            "Org": "sumit.karna@in.ibm.com",
-            "Space": "dev",
+            "Org": "subhadeep.bose@in.ibm.com",
+            "Space": "TheBoseMan",
             "Url": "https://api.ng.bluemix.net"
         },
         "Timeout": 60

@@ -10,6 +10,8 @@ var methodOverride = require('method-override');
 var mime = require('mime');
 
 
+
+
 var storage =   multer.diskStorage({
   destination: function (req, file, callback) {
     callback(null, __dirname+'/uploads');
@@ -20,6 +22,8 @@ var storage =   multer.diskStorage({
 	
   }
 });
+
+
 
 //var upload = multer({ dest:'./uploads' }, {onFileUploadData: function (file, data) {
   //console.log(data.length + ' of ' + file.fieldname + ' arrived')
@@ -38,11 +42,19 @@ app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({
 	limit: '50mb',
   extended: true
-}))
+}));
 app.use(express.favicon());
 app.use(express.logger('dev'));
+app.use(express.cookieParser('keyboard cat'));
+ app.use(express.session({ cookie: { maxAge: 60000 }}));
+  //app.use(flash());
 //app.use(express.bodyParser());
 //app.use(express.methodOverride());
+app.use(require('connect-flash')());
+app.use(function (req, res, next) {
+  res.locals.messages = require('express-messages')(req, res);
+  next();
+});
 app.use(methodOverride());
 app.use(app.router);
 
@@ -88,7 +100,9 @@ app.get('/api/employeDetails/:id',routes.employeeDetail);
 //})
 //app.post('/upload/photos',upload.single('images'),function(req, res) {
 	app.post('/upload/photos',upload.single('file'),routes.photoSave);
+  app.post('/upload/photosUpdate',upload.single('file'),routes.photoUpdate);
 	app.get('/view/photos/:id',routes.viewPhoto);
+  app.get('/email-verification/:url',userRoute.permanentCreate);
 
 app.post('/uploadjavatpoint',function(req,res){
 	upload2(req,res,function(err) {

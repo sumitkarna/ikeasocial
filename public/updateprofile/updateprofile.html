@@ -8,13 +8,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/ng-img-crop/0.3.2/ng-img-crop.css" rel="stylesheet"/>
 		<link rel="stylesheet" href="stylesheets/profileCreation.css">		
   </head>
 
   <body>
-	  <div ng-init="init()">
+	  
        <div>	
-					<form class="well form-horizontal" role="form" ng-submit="vm.updateEmployee()" id="contact_form">
+		   <div ng-init="init()">
+					<form class="well form-horizontal" role="form" ng-submit="vm.updateEmployee()" id="contact_form" ng-controller="ProfileUpdationController">
 					<fieldset>
 							<!-- Form Name -->
 							<legend><b><span id="head-title"> Update Your Profile! </span></b></legend>
@@ -399,14 +401,33 @@
 								<a href="#" id="instagram" class="hvr-grow"><img src='images/instagram.png'/></a>
 								<input  name="instagramlink" style="width: 25em; margin-left: 16em;margin-top: -3em;" ng-model="employee.instagramlink" placeholder="Instagram link" class="form-control"  type="text" />
 							</div>
-
+							<div class="hvr-grow">
+ <img ng-src="{{employee.profilephoto}}" border="0" />
+ </div>
 							<!-- Image upload -->
 							<div class="form-group hvr-grow photos">
 								<label class="col-md-4 control-label">Photos</label>  
 									<div class="col-md-4 inputGroupContainer">
 										<div class="input-group">
-										<input name="file" ng-model="vm.employee.profilephoto" name="profilephoto" type="file">
-									</div>
+											
+											
+											<div class="button" ngf-select ng-model="employee.profilephotos" name="profilephotos" ngf-pattern="'image/*'"
+    ngf-accept="'image/*'"
+    >Select</div>
+
+	<div ngf-drop ng-model="employee.profilephotos" ngf-pattern="image/*"
+             class="cropArea">
+            <img-crop image="employee.profilephotos  | ngfDataUrl"                 
+            result-image="employee.croppedDataUrl" ng-init="croppedDataUrl=''">
+            </img-crop>
+        </div>
+		<div>
+            <img ng-src="{{employee.croppedDataUrl}}" ng-mod/>
+        </div>
+        
+											
+											
+										</div>
 								</div>
 							</div>
 
@@ -423,7 +444,8 @@
        </div>
 		</div>
 		</div>
-		<!-- /.container -->
-  	
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/danialfarid-angular-file-upload/12.0.4/ng-file-upload.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/ng-img-crop/0.3.2/ng-img-crop.js"></script> 	
   </body>
 </html>

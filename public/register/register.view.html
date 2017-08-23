@@ -13,6 +13,12 @@
     </div>
      <section class="container">
     <div class="register">
+     <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash"
+        ng-bind="flash.message">
+    </div>
+    
+     <div ng-repeat="message in messages" message="message"></div>
+
     <div id="register-heading"><h2>Register</h2></div>
     <br/>
     <form name="form" ng-submit="vm.register()" role="form">

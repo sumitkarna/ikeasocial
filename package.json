@@ -7,12 +7,16 @@
   },
   "dependencies": {
     "cfenv": "latest",
+    "connect-flash": "^0.1.1",
+    "email-verification": "^0.4.6",
     "express": "^3.21.2",
+    "express-messages": "^1.0.1",
     "jade": "*",
     "mime": "^1.3.6",
     "mongoose": ">= 3.8.0",
     "multer": "1.1.0",
     "ng-file-upload": "^12.2.13",
+    "req-flash": "0.0.3",
     "socket.io": "~0.9.16"
   }
 }
